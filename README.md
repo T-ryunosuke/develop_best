@@ -58,6 +58,7 @@ MVPリリース時に作っていたいもの
 
 本リリースまでに作っていたいもの
 - xへのシェア機能
+- オートコンプリート機能
 
 
 ## ■ 機能の実装方針予定
@@ -92,3 +93,6 @@ postとuserの中間テーブル(like)作成。
 ルーティングの設定  
 Viewの編集  
 （投稿の下にハートicon）
+
+##　■　画面遷移図
+https://www.figma.com/design/9xnjdSnkOmkKpDpbBlRc4A/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=zOUX0bHA1O51668Y-1
