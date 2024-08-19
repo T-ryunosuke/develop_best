@@ -1,0 +1,49 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  static_pages:
+    top:
+      title: トップページ
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+  profiles:
+    show:
+      title: プロフィール詳細
+    edit:
+      title: プロフィール編集
+  posts:
+    index:
+      title: 投稿一覧
+    new:
+      title: 投稿作成
+    show:
+      title: 投稿詳細
+    edit:
+      title: 投稿編集
+  comments:
+    placeholder:
+      comment: コメント
+  header:
+    logo: best
+    login: ログイン
+    logout: ログアウト
+    sign_up: 新規登録
+    profile: プロフィール
+  footer:
+    privacy_policy: プライバシーポリシー
+    terms_of_service: 利用規約
+    contact: お問い合わせ
