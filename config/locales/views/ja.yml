@@ -38,7 +38,6 @@ ja:
     placeholder:
       comment: コメント
   header:
-    logo: best
     login: ログイン
     logout: ログアウト
     sign_up: 新規登録
