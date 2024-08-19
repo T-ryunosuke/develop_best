@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+header {
+  /* ナビバーの高さに合わせたパディングを追加 */
+  @apply pb-16;
+}

@@ -23,5 +23,13 @@ module Myapp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Rails generator の設定
+    config.generators do |g|
+      g.helper false
+      g.test_framework :rspec
+    end
+
+    config.i18n.default_locale = :ja
   end
 end
