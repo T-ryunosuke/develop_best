@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div class= "alert alert-error py-2 mt-6", role="alert" >
+    <ul>
+      <% object.errors.each do |error| %>
+        <li class="text-sm md:text-base"><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="border-b-2">&nbsp;</div>
+<% end %>

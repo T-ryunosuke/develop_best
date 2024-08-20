@@ -1,0 +1,35 @@
+<% content_for(:title, t('.title')) %>
+
+<div class="container mx-auto" >
+  <div class="flex justify-center">
+    <div class="flex-grow max-w-64 md:max-w-md">
+      <%= form_with model: @user do |form| %>
+        <%= render 'shared/error_messages', object: form.object %>
+        <div class="py-8">
+          <%= form.label :name, "名前" %>
+          <%= form.text_field :name, class: "input input-bordered input-xs w-full" %>
+        </div>
+
+        <div class="mb-8">
+          <%= form.label :email, "メールアドレス" %>
+          <%= form.text_field :email, class: "input input-bordered input-xs w-full" %>
+        </div>
+
+        <div class="pb-8">
+          <%= form.label :password, "パスワード" %>
+          <%= form.text_field :password, class: "input input-bordered input-xs w-full form-control", id: "user_password" %>
+        </div>
+
+        <div class="pb-2 md:mb-8">
+          <%= form.label :password_confirmation, "パスワード(確認用)" %>
+          <%= form.text_field :password_confirmation, class: "input input-bordered input-xs w-full" %>
+        </div>
+
+
+        <div class="text-center my-8">
+          <%= form.submit t('.submit'), class: "btn btn-sm bg-primary-content w-1/4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
