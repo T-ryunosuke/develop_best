@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[7.2]
       t.string :email, null: false, index: { unique: true }
       t.string :crypted_password
       t.string :salt
+      t.integer :age
+      t.integer :gender
       t.text :profile
       t.string :avatar
       t.timestamps
