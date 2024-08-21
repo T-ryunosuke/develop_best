@@ -9,5 +9,7 @@
   <div class="flex-none ml-auto">
     <%= link_to t("header.profile"), '#', class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
     <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>
+    <%= link_to t("header.profile"), new_post_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
+    <%= link_to t("header.logout"), new_category_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
   </div>
 </div>
