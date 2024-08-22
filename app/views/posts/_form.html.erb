@@ -1,21 +1,27 @@
-<%= form_with model: post do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="mb-3">
-    <%= f.label :title, "タイトル" %>
-    <%= f.text_field :title, class: 'form-control' %>
-  </div>
+<div class="card bg-base-100 w-3/5 shadow-xl">
+  <div class="card-body flex flex-col items-center mt-6">
+    <div class="flex-grow w-full px-4">
+      <%= form_with model: post do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="form-control mb-10">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: "input input-bordered input-xs w-full" %>
+        </div>
 
-  <div class="mb-3">
-    <%= f.label :category_name, "カテゴリー" %>
-    <%= f.text_field :category_name, class: 'form-control', value: @post.category_name || @post.category&.name %>
-  </div>
+        <div class="form-control mb-10">
+          <%= f.label :category_name, "カテゴリー" %>
+          <%= f.text_field :category_name, class: "input input-bordered input-xs w-full", value: @post.category_name || @post.category&.name %>
+        </div>
 
-  <div class="mb-3">
-    <%= f.label :content, "内容" %>
-    <%= f.text_area :content, class: 'form-control', rows: 5 %>
-  </div>
+        <div class="form-control mb-16">
+          <%= f.label :content, "内容" %>
+          <%= f.text_area :content, class: 'textarea textarea-bordered h-24 w-full', placeholder: "内容" %>
+        </div>
 
-  <div class="text-center my-8">
-    <%= f.submit t('helpers.submit.post'), class: "btn btn-sm bg-primary-content w-1/4" %>
+        <div class="text-center mb-4">
+          <%= f.submit t('helpers.submit.post'), class: "btn btn-sm bg-primary-content w-1/4 font-thin md:font-semibold" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
