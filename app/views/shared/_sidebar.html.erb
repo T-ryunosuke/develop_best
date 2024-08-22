@@ -1,0 +1,30 @@
+<div class="w-full h-vh-100 bg-base-200 mt-10">
+  <ul class="menu text-xl md:text-2xl font-thin m-6">
+    <li class="mb-4">
+      <%= link_to posts_path do %>
+        <i class="ri-star-line"></i>
+        <%= t("sidebar.index") %>
+      <% end %>
+    </li>
+    <li class="mb-4">
+      <%= link_to new_post_path do %>
+        <i class="ri-pencil-line"></i>
+        <%= t("sidebar.new") %>
+      <% end %>
+    </li>
+    <li class="mb-4">
+      <%= link_to "#" do %>
+        <i class="ri-heart-line"></i>
+        <%= t("sidebar.favorite") %>
+      <% end %>
+    </li>
+    <li class="mb-4">
+      <%= link_to "#" do %>
+        <i class="ri-search-2-line"></i>
+        <%= t("sidebar.search") %>
+      <% end %>
+    </li>
+    <div class="md:divider"></div>
+  </ul>
+</div>
+<i class="ri-heart-line"></i>

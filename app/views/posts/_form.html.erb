@@ -1,21 +1,21 @@
 <%= form_with model: post do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="mb-3">
-    <%= f.label :title %>
+    <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :category_name %>
+    <%= f.label :category_name, "カテゴリー" %>
     <%= f.text_field :category_name, class: 'form-control', value: @post.category_name || @post.category&.name %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :content %>
+    <%= f.label :content, "内容" %>
     <%= f.text_area :content, class: 'form-control', rows: 5 %>
   </div>
 
   <div class="text-center my-8">
-    <%= f.submit t('.submit'), class: "btn btn-sm bg-primary-content w-1/4" %>
+    <%= f.submit t('helpers.submit.post'), class: "btn btn-sm bg-primary-content w-1/4" %>
   </div>
 <% end %>
