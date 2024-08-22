@@ -1,4 +1,14 @@
-<div class="navbar bg-base-300 fixed">
+<div class="navbar bg-base-300 sticky z-50 flex items-center justify-between">
+  <!-- ハンバーガーメニューのボタン -->
+  <button id="menu-toggle" class="btn btn-ghost">
+    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
   <div class="flex-1 ml-2">
     <div class="btn btn-ghost">
       <%= link_to root_path do %>
@@ -9,7 +19,5 @@
   <div class="flex-none ml-auto">
     <%= link_to t("header.profile"), '#', class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
     <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>
-    <%= link_to t("header.profile"), new_post_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
-    <%= link_to t("header.logout"), new_category_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
   </div>
 </div>

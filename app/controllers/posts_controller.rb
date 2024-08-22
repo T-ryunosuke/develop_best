@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if @post.save_with_category(post_params[:category_name])
       redirect_to posts_path, flash: { success: "投稿を作成しました" }
     else
-      flash.now[:danger] = "投稿を作成出来ませんでした"
+      flash.now[:info] = "投稿を作成出来ませんでした"
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, flash: { success: "投稿を更新しました" }
     else
-      flash.now[:danger] = "投稿を更新出来ませんでした"
+      flash.now[:info] = "投稿を更新出来ませんでした"
       render :edit, status: :unprocessable_entity
     end
   end

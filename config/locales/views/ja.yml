@@ -4,6 +4,7 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+      post: 投稿
     label:
       email: メールアドレス
       password: パスワード
@@ -31,7 +32,6 @@ ja:
       title: 投稿一覧
     new:
       title: 投稿作成
-      submit: 投稿
     show:
       title: 投稿詳細
     edit:
@@ -52,3 +52,8 @@ ja:
     privacy_policy: プライバシーポリシー
     terms_of_service: 利用規約
     contact: お問い合わせ
+  sidebar:
+    index: Bests
+    new: Post
+    favorite: Favorite
+    search: Search
