@@ -1,0 +1,31 @@
+<div class="container mx-auto mt-10">
+  <div class="flex justify-center w-full">
+    <div class="card bg-base-100 w-3/4 lg:w-3/5 shadow-xl">
+      <div class="card-body flex flex-col items-center mt-6">
+        <div class="flex-grow w-full px-4">
+          <div class="form-control mb-2 text-3xl mg:text-5xl">
+            <%= @post.title %>
+          </div>
+
+          <div class="form-control mb-10">
+            <%= link_to @post.category.name, posts_path(category_name: @post.category.name),class: "badge badge-primary badge-outline badge-sm text-xs" %>
+          </div>
+
+          <div class="form-control mb-4 textarea textarea-bordered">
+            <%= @post.content %>
+          </div>
+        </div>
+      </div>
+      <% if current_user&.mine?(@post) %>
+      <div class="card-actions justify-end mb-4 mr-4">
+        <%= link_to edit_post_path(@post) do %>
+          <i class="ri-edit-box-line text-2xl text-info"></i>
+        <% end %>
+        <%= link_to post_path(@post), data: { turbo_method: :delete, confirm: '削除します' } do %>
+          <i class="ri-delete-bin-5-line text-2xl text-red-500"></i>
+        <% end %>
+      <div>
+      <% end %>
+    </div>
+  </div>
+</div>

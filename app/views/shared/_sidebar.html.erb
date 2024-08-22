@@ -1,30 +1,32 @@
-<div class="w-full h-vh-100 bg-base-200 mt-10">
-  <ul class="menu text-xl md:text-2xl font-thin m-6">
-    <li class="mb-4">
-      <%= link_to posts_path do %>
-        <i class="ri-star-line"></i>
-        <%= t("sidebar.index") %>
-      <% end %>
-    </li>
-    <li class="mb-4">
-      <%= link_to new_post_path do %>
-        <i class="ri-pencil-line"></i>
-        <%= t("sidebar.new") %>
-      <% end %>
-    </li>
-    <li class="mb-4">
-      <%= link_to "#" do %>
-        <i class="ri-heart-line"></i>
-        <%= t("sidebar.favorite") %>
-      <% end %>
-    </li>
-    <li class="mb-4">
-      <%= link_to "#" do %>
-        <i class="ri-search-2-line"></i>
-        <%= t("sidebar.search") %>
-      <% end %>
-    </li>
-    <div class="md:divider"></div>
-  </ul>
+<div id="side-menu" class="fixed top-7 sm:top-10 left-0 w-1/3 bg-base-200 transform -translate-x-full transition-transform duration-300 z-40">
+  <div class="w-full h-vh-100 bg-base-200 mt-10">
+    <ul class="menu text-xl sm:text-2xl font-thin -ml-1 sm:m-6">
+      <li class="mb-2 sm:mb-4">
+        <%= link_to posts_path do %>
+          <i class="ri-star-line"></i>
+          <%= t("sidebar.index") %>
+        <% end %>
+      </li>
+      <li class="mb-2 sm:mb-4">
+        <%= link_to new_post_path do %>
+          <i class="ri-pencil-line"></i>
+          <%= t("sidebar.new") %>
+        <% end %>
+      </li>
+      <li class="mb-2 sm:mb-4">
+        <%= link_to "#" do %>
+          <i class="ri-heart-line"></i>
+          <%= t("sidebar.favorite") %>
+        <% end %>
+      </li>
+      <li class="mb-2 sm:mb-4">
+        <%= link_to "#" do %>
+          <i class="ri-search-2-line"></i>
+          <%= t("sidebar.search") %>
+        <% end %>
+      </li>
+      <div class="sm:divider"></div>
+    </ul>
+  </div>
+  <i class="ri-heart-line"></i>
 </div>
-<i class="ri-heart-line"></i>
