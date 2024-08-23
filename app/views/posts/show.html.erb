@@ -19,11 +19,20 @@
       <% if current_user&.mine?(@post) %>
       <div class="card-actions justify-end mb-4 mr-4">
         <%= link_to edit_post_path(@post) do %>
-          <i class="ri-edit-box-line text-2xl text-info"></i>
+          <i class="ri-edit-box-line text-2xl text-blue-600"></i>
         <% end %>
-        <%= link_to post_path(@post), data: { turbo_method: :delete, confirm: '削除します' } do %>
-          <i class="ri-delete-bin-5-line text-2xl text-red-500"></i>
-        <% end %>
+        <i class="ri-delete-bin-5-line text-2xl text-red-500"  onclick="my_modal.showModal()"></i>
+        <dialog id="my_modal" class="modal">
+        <div class="modal-box">
+          <p class="text-center text-lg font-medium">削除しますか？</p>
+          <div class="modal-action flex justify-between mx-20">
+            <form method="dialog">
+              <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
+            </form>
+            <%= link_to "削除", post_path(@post), class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
+          </div>
+        </div>
+      </dialog>
       <div>
       <% end %>
     </div>
