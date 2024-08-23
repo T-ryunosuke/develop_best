@@ -13,6 +13,8 @@
     <!-- <link rel="apple-touch-icon" href="/icon.png"> -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet"/>
   </head>
@@ -41,3 +43,13 @@
     </footer>
   </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+    $('#menu-toggle').click(function() {
+      $('#side-menu').toggleClass('translate-x-0 -translate-x-full');
+      $('#menu-icon').toggleClass('hidden');
+      $('#close-icon').toggleClass('hidden');
+    });
+  });
+</script>
