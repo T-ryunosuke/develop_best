@@ -6,11 +6,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, flash: { success: "ユーザー登録に成功しました" }
+      redirect_to root_path, success: t('users.create.success')
     else
-      flash.now[:info] = "ユーザー登録に失敗しました"
+      flash.now[:info] = t('users.create.failure')
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def liked_posts
+    @posts = current_user.liked_posts.includes(:category).order(created_at: :desc).page(params[:page])
   end
 
   private

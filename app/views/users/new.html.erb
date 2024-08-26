@@ -6,22 +6,22 @@
       <%= form_with model: @user do |form| %>
         <%= render 'shared/error_messages', object: form.object %>
         <div class="py-8">
-          <%= form.label :name, "名前" %>
+          <%= form.label :name, t(".name") %>
           <%= form.text_field :name, class: "input input-bordered input-xs w-full" %>
         </div>
 
         <div class="mb-8">
-          <%= form.label :email, "メールアドレス" %>
+          <%= form.label :email, t(".email") %>
           <%= form.text_field :email, class: "input input-bordered input-xs w-full" %>
         </div>
 
         <div class="pb-8">
-          <%= form.label :password, "パスワード" %>
+          <%= form.label :password, t(".password") %>
           <%= form.text_field :password, class: "input input-bordered input-xs w-full form-control", id: "user_password" %>
         </div>
 
         <div class="pb-2 md:mb-8">
-          <%= form.label :password_confirmation, "パスワード(確認用)" %>
+          <%= form.label :password_confirmation, t(".password_confirmation") %>
           <%= form.text_field :password_confirmation, class: "input input-bordered input-xs w-full" %>
         </div>
 

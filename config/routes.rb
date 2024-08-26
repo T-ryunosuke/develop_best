@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root "static_pages#top"
-  resources :users, only: %i[new create]
-  resources :posts
+  resources :users, only: %i[new create] do
+    member do
+      get :liked_posts
+    end
+  end
+  resources :posts do
+    resource :likes, only: %i[create destroy]
+  end
   resources :categories, only: %i[new create]
   get "login" => "user_sessions#new"
   post "login" => "user_sessions#create"
