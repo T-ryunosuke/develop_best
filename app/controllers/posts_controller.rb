@@ -10,9 +10,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save_with_category(post_params[:category_name])
-      redirect_to posts_path(@post), flash: { success: "投稿を作成しました" }
+      redirect_to posts_path(@post), success: t("posts.create.success")
     else
-      flash.now[:info] = "投稿を作成出来ませんでした"
+      flash.now[:info] = t("posts.create.failure")
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,9 +28,9 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update_with_category(post_params)
-      redirect_to post_path(@post), flash: { success: "投稿を更新しました" }
+      redirect_to post_path(@post), success: t("posts.update.success")
     else
-      flash.now[:info] = "投稿を更新出来ませんでした"
+      flash.now[:info] = t("posts.update.failure")
       render :edit, status: :unprocessable_entity
     end
   end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to posts_path, flash: { success: "投稿を削除しました" }, status: :see_other
+    redirect_to posts_path, success: t("posts.delete.success"), status: :see_other
   end
 
   private

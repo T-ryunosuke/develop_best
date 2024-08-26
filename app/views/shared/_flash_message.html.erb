@@ -1,6 +1,6 @@
 <div class="relative">
   <% flash.each do |message_type, message| %>
-    <div class="animate-flash rounded-md z-20 alert alert-<%= message_type %> fixed">
+    <div class="alert alert-<%= message_type %> animate-flash rounded-md z-20 fixed">
       <%= message %>
     </div>
   <% end %>

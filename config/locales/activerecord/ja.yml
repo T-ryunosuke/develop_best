@@ -11,3 +11,8 @@ ja:
         age: 年齢
         profile: プロフィール
         avatar: アバター
+      post:
+        title: タイトル
+        content: 内容
+        category: カテゴリー
+        category_name: カテゴリー
