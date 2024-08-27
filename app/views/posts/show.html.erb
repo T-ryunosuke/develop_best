@@ -29,7 +29,7 @@
           <i class="ri-delete-bin-5-line text-2xl text-red-400 cursor-pointer" onclick="my_modal.showModal()"></i>
           <dialog id="my_modal" class="modal">
             <div class="modal-box">
-              <p class="text-center text-lg font-medium">削除しますか？</p>
+              <p class="text-center text-lg font-medium">投稿を削除しますか？</p>
               <div class="modal-action flex justify-between mx-20">
                 <form method="dialog">
                   <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
@@ -42,10 +42,21 @@
         <% else %>
         <!-- "いいね"アイコンをカードの左端に表示 -->
         <div class="flex items-center space-x-2">
-          <%= render 'likes/like', post: @post, liker: @post.liked_by?(current_user) %>
+          <%= render "likes/like", post: @post, liker: @post.liked_by?(current_user) %>
         </div>
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="flex justify-center w-full mt-8 mb-20">
+    <div id="table-comment" class="w-3/4 lg:w-3/5">
+      <h2 class="text-xl mb-4 font-bole">コメント</h2>
+      <%= render @comments %>
+    </div>
+  </div>
+</div>
+<div class="fixed bottom-0 w-full bg-gray-400">
+  <div class="container mx-auto">
+    <%= render "comments/form", comment: @comment, post: @post %>
   </div>
 </div>

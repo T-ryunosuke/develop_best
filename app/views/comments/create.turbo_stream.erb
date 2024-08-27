@@ -1,0 +1,8 @@
+<% if @comment.persisted? %>
+  <%= turbo_stream.prepend "table-comment" do %>
+    <%= render "comment", comment: @comment %>
+  <% end %>
+<% end %>
+<%= turbo_stream.replace "comment-form" do %>
+  <%= render "form", post: @post, comment: Comment.new  %>
+<% end %>

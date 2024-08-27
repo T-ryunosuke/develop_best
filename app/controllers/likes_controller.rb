@@ -8,8 +8,8 @@ class LikesController < ApplicationController
     end
 
     render turbo_stream: turbo_stream.replace(
-      "like_#{@post.id}",
-      partial: 'likes/like',
+      "liked_#{@post.id}",
+      partial: "likes/like",
       locals: { post: @post, liker: true },
     )
   end
@@ -22,8 +22,8 @@ class LikesController < ApplicationController
     end
 
     render turbo_stream: turbo_stream.replace(
-      "like_#{@post.id}",
-      partial: 'likes/like',
+      "liked_#{@post.id}",
+      partial: "likes/like",
       locals: { post: @post, liker: false },
     )
   end

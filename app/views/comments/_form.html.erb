@@ -1,0 +1,11 @@
+<div id="comment-form" class="flex justify-center py-3">
+  <div class="w-5/6 sm:w-3/4 lg:w-2/3 md:pl-6 flex items-center">
+    <%= form_with model: comment, url: post_comments_path(@post), class: "flex w-full items-center" do |f| %>
+      <%= f.label :content, t("comments.comment"), class: "sr-only" %>
+      <%= f.text_area :content, rows: "1", placeholder: t("comments.comment"), class: "flex-grow rounded-sm min-h-10 max-h-20 p-2" %>
+      <%= f.button class: "ml-2" do %>
+        <i class="ri-send-plane-fill text-3xl text-white hover:animate-pulse"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
