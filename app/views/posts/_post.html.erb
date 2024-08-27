@@ -20,7 +20,7 @@
             <i class="ri-delete-bin-5-line text-2xl text-red-400 cursor-pointer" onclick="my_modal_<%= post.id %>.showModal()"></i>
             <dialog id="my_modal_<%= post.id %>" class="modal">
               <div class="modal-box">
-                <p class="text-center text-lg font-medium">削除しますか？</p>
+                <p class="text-center text-lg font-medium">投稿を削除しますか？</p>
                 <div class="modal-action flex justify-between mx-20">
                   <form method="dialog">
                     <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
@@ -32,7 +32,7 @@
           </div>
           <% else %>
           <div class="flex items-center space-x-2">
-            <%= render 'likes/like', post: post, liker: post.liked_by?(current_user) %>
+            <%= render "likes/like", post: post, liker: post.liked_by?(current_user) %>
           </div>
           <% end %>
         </div>

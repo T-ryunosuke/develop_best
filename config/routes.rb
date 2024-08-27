@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts do
+    resources :comments, only: %i[create edit destroy], shallow: true
     resource :likes, only: %i[create destroy]
   end
   resources :categories, only: %i[new create]

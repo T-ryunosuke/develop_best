@@ -6,6 +6,7 @@ ja:
       update: 更新
       edit: 編集
       post: 投稿
+      comment: 送信
     label:
       email: メールアドレス
       password: パスワード
@@ -61,8 +62,7 @@ ja:
     delete:
       success: 投稿を削除しました
   comments:
-    placeholder:
-      comment: コメント
+    comment: コメント
   categories:
     new:
       title: カテゴリー登録

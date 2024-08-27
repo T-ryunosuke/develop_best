@@ -24,23 +24,26 @@
     <header>
       <% if logged_in? %>
         <%= render "shared/header" %>
+        <aside>
+          <%= render "shared/sidebar" %>
+        </aside>
       <% else %>
         <%= render "shared/before_login_header" %>
       <% end %>
       <%= render "shared/flash_message" %>
     </header>
 
-    <aside>
-      <%= render "shared/sidebar" %>
-    </aside>
+
 
     <main class="flex flex-1 pb-4 z-10 ">
       <%= yield %>
     </main>
 
+    <% unless logged_in? %>
     <footer>
       <%= render "shared/footer" %>
     </footer>
+    <% end %>
   </body>
 </html>
 
