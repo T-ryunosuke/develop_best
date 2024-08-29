@@ -9,15 +9,17 @@
     </svg>
   </button>
 
-  <div class="flex-1 ml-2">
-    <div class="btn btn-ghost">
+  <div class="flex-1">
+    <div class="ml-4">
       <%= link_to root_path do %>
-        <%= image_tag "logo.svg", class: "h-10 md:h-11" %>
+        <%= image_tag "logo.svg", class: "h-10 md:h-11 hover:scale-110" %>
       <% end %>
     </div>
   </div>
   <div class="flex-none ml-auto">
-    <%= link_to t("header.profile"), '#', class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3" %>
-    <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-xs md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>
+    <%= link_to edit_profile_path, class: "hover:origin-bottom hover:rotate-12 font-thin text-3xl md:text-4xl px-2 md:mx-3" do %>
+      <i class="ri-id-card-fill"></i>
+    <% end %>
+    <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-sm md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>
   </div>
 </div>

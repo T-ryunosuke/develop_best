@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_26_071822) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title", limit: 255, null: false
-    t.string "image"
+    t.json "images"
     t.text "content", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_26_071822) do
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
-    t.integer "age"
-    t.integer "gender"
+    t.integer "age", default: 0
+    t.integer "gender", default: 0
     t.text "profile"
     t.string "avatar"
     t.datetime "created_at", null: false

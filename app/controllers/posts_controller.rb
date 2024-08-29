@@ -32,6 +32,7 @@ class PostsController < ApplicationController
     if @post.update_with_category(post_params)
       redirect_to post_path(@post), success: t("posts.update.success")
     else
+
       flash.now[:info] = t("posts.update.failure")
       render :edit, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category_name, :image, :image_cache)
+    params.require(:post).permit(:title, :content, :category_name, {images: []}, :images_cache)
   end
 end
