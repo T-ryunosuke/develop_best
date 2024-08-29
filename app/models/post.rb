@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  mount_uploaders :images, ImageUploader
+
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
@@ -9,6 +11,7 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 65_535 }
 
   attr_accessor :category_name
+
 
   def save_with_category(category_name)
     if category_name.present?
@@ -29,7 +32,8 @@ class Post < ApplicationRecord
     # 空白なら既存の値を保持する
     update(
       title: post_params[:title].presence || self.title,
-      content: post_params[:content].presence || self.content
+      content: post_params[:content].presence || self.content,
+      images: post_params[:images].presence || self.images
     )
   end
 

@@ -27,7 +27,8 @@ gem "rails-i18n", "~> 7.0.0"
 gem "sorcery"
 gem "kaminari"
 gem "ransack", "4.1.1"
-gem "carrierwave", "~> 2.0"
+gem 'carrierwave', "2.2.2"
+gem "enum_help"
 # gem "mini_magick", "~> 4.12"
 # gem "fog-aws", '3.21.0'
 

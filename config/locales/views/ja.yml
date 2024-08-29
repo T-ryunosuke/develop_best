@@ -39,10 +39,17 @@ ja:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
   profiles:
-    show:
-      title: プロフィール詳細
     edit:
-      title: プロフィール編集
+      title: プロフィール
+      name: 名前
+      email: メールアドレス
+      profile: 自己紹介
+      gender: 性別
+      age: 年齢
+      submit: 更新
+    update:
+      success: プロフィールを更新しました
+      failure: プロフィールを更新できませんでした
   posts:
     index:
       title: 投稿一覧
@@ -87,3 +94,4 @@ ja:
     next: 次へ
     previous: 前へ
     truncate: "..."
+
