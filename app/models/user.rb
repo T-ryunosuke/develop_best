@@ -6,6 +6,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followee_id", dependent: :destroy
+  has_many :followees, through: :relationships, source: :followee
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+
   validates :name, presence: true, length: { maximum: 25 }
   validates :email, uniqueness: true, presence: true
   validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
@@ -17,5 +22,18 @@ class User < ApplicationRecord
 
   def mine?(object)
     id == object.user_id
+  end
+
+  # フォローしたとき
+  def follow(user_id)
+    relationships.create(followee_id: user_id)
+  end
+  # フォローを外すとき
+  def unfollow(user_id)
+    relationships.find_by(followee_id: user_id).destroy
+  end
+
+  def followee?(user)
+    followees.include?(user)
   end
 end

@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="flex-none ml-auto">
-    <%= link_to edit_profile_path, class: "hover:origin-bottom hover:rotate-12 font-thin text-3xl md:text-4xl px-2 md:mx-3" do %>
+    <%= link_to profile_path, class: "hover:origin-bottom hover:rotate-12 font-thin text-3xl md:text-4xl px-2 md:mx-3" do %>
       <i class="ri-id-card-fill"></i>
     <% end %>
     <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-sm md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>

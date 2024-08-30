@@ -38,9 +38,18 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+    liked_posts:
+      title: お気に入り投稿
   profiles:
-    edit:
+    show:
       title: プロフィール
+      name: 名前
+      email: メールアドレス
+      profile: 自己紹介
+      gender: 性別
+      age: 年齢
+    edit:
+      title: プロフィール編集
       name: 名前
       email: メールアドレス
       profile: 自己紹介
@@ -94,4 +103,3 @@ ja:
     next: 次へ
     previous: 前へ
     truncate: "..."
-

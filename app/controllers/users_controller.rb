@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.order(created_at: :desc).page(params[:page]).per(10)
+  end
+
   def new
     @user = User.new
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def create
@@ -15,6 +23,17 @@ class UsersController < ApplicationController
 
   def liked_posts
     @posts = current_user.liked_posts.includes(:category).order(created_at: :desc).page(params[:page])
+  end
+
+  # フォロイー一覧
+  def followees
+    user = User.find(params[:user_id])
+    @users = user.followees
+  end
+  # フォロワー一覧
+  def followers
+    user = User.find(params[:user_id])
+    @users = user.followers
   end
 
   private
