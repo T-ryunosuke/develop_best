@@ -1,0 +1,12 @@
+<% content_for(:title, t('.title')) %>
+
+<div class="container mx-auto mt-10">
+  <% if @users.present? %>
+    <%= render @users %>
+  <% else %>
+    <div class="mb-3">他のユーザーがいません</div>
+  <% end %>
+  <div class="mb-20 flex justify-center">
+    <%= paginate @users %>
+  </div>
+</div>

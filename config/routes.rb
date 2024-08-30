@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
+  get "relationships/followees"
+  get "relationships/followers"
   root "static_pages#top"
-  resources :users, only: %i[new create] do
+  resources :users, only: %i[new create show] do
     member do
-      get :liked_posts
+      get :liked_posts, :followees, :followers
     end
+    resource :relationships, only: %i[create destroy]
   end
   resources :posts do
     resources :comments, only: %i[create edit destroy], shallow: true
     resource :likes, only: %i[create destroy]
   end
   resources :categories, only: %i[new create]
-  resource :profile, only: %i[edit update]
+  resource :profile, only: %i[show edit update]
   get "login" => "user_sessions#new"
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy"

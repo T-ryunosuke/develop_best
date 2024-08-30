@@ -1,0 +1,70 @@
+<div class="container mx-auto mt-10">
+  <div class="flex justify-center">
+    <div class="flex flex-col w-3/4">
+      <div class="text-2xl ml-4 md:ml-6 pl-3 my-6 border-l-4 border-gray-400">
+        <%= t('profiles.show.title') %>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="flex flex-row space-x-4 w-11/12">
+          <div class="basis-1/4 flex justify-center">
+            <% if @user.avatar.present? %>
+              <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3') %>
+            <% else %>
+              <%= image_tag('sample.jpg', class: 'rounded-full size-16 sm:size-20 my-3') %>
+            <% end %>
+          </div>
+
+          <div class="basis-3/4">
+            <div class="flex flex-col">
+              <div class="flex mb-6 space-x-4">
+                <p>フォロー中: <%= @user.followees.count %></p>
+                <p>フォロワー: <%= @user.followers.count %></p>
+              </div>
+
+              <label><%= t("profiles.show.name") %></label>
+              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+                <%= @user.name %>
+              </div>
+
+              <label><%= t("profiles.show.email") %></label>
+              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+                <%= @user.email %>
+              </div>
+
+              <label><%= t("profiles.show.gender") %></label>
+              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+                <%= @user.gender_i18n %>
+              </div>
+
+              <label><%= t("profiles.show.age") %></label>
+              <div class='bg-gray-100 ml-4 mb-8 w-5/6 border-b-2 mb-2'>
+                <%= @user.age_i18n %>
+              </div>
+
+              <div class="form-control ml-4 mb-3 w-5/6 textarea textarea-bordered bg-gray-100">
+                <%= @user.profile %>
+              </div>
+            </div>
+
+            <% if current_user.id == @user.id %>
+              <div class="text-center sm:text-end">
+                <%= link_to edit_profile_path do %>
+                  <i class="ri-pencil-line font-thin mb-6 sm:mr-24"></i>
+                <% end %>
+              </div>
+            <% else %>
+              <% if current_user.followee?(@user) %>
+                <%= link_to "フォロー外す", user_relationships_path(@user), data: { "turbo-method": :delete } %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(@user), data: { "turbo-method": :post } %>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

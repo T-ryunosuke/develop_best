@@ -23,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # デフォルトの画像ファイルを指定
   def default_url
-    'sample.jpg'
+    "sample.jpg"
   end
 
   # Process files as they are uploaded:
