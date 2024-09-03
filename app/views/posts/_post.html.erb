@@ -3,14 +3,8 @@
     <div class="flex flex-col items-center p-6">
       <div class="flex-grow w-full">
         <div class="flex justify-between">
-          <% if post.user.avatar.present? %>
-            <%= link_to user_path(post.user) do %>
-              <%= image_tag(post.user.avatar.url, class: 'border outline outline-offset-2 outline-blue-400 ring-1 rounded-full size-10 sm:size-12') %>
-            <% end %>
-          <% else %>
-            <%= link_to user_path(post.user) do %>
-              <%= image_tag('sample.jpg', class: 'border outline outline-offset-2 outline-blue-400 ring-1 rounded-full size-10 sm:size-12') %>
-            <% end %>
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag(post.user.avatar.url, class: 'border outline outline-offset-2 outline-blue-400 ring-1 rounded-full size-10 md:size-12 hover:outline-offset-4') %>
           <% end %>
 
           <p class="text-end text-xs text-gray-400"><%= time_ago_in_words(post.created_at) %>前</p>
@@ -21,7 +15,7 @@
         </div>
 
         <div>
-          <%= link_to post.category.name, posts_path(category_name: post.category.name),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
+          <%= link_to post.category.name, category_posts_path(post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
         </div>
 
         <div class="flex justify-center">

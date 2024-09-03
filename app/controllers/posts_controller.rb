@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
+  before_action :set_category, only: %i[index show]
+
   def index
-    @posts = Post.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    if params[:query].present?
+      @posts = Post.ransack(title_or_content_cont: params[:query]).result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    else
+      if @category
+        @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(10)
+      else
+        @posts = @p.result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+      end
+    end
   end
 
   def new
@@ -48,5 +58,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :category_name, { images: [] }, :images_cache)
+  end
+
+  def set_category
+    @category = Category.find_by(id: params[:category_id])
   end
 end

@@ -13,7 +13,7 @@
           </div>
 
           <div class="form-control">
-            <%= link_to @post.category.name, posts_path(category_name: @post.category.name),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
+            <%= link_to @post.category.name, category_posts_path(@post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
             <div class="divider"></div>
           </div>
 

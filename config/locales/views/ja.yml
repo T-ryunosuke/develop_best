@@ -88,6 +88,7 @@ ja:
     logout: ログアウト
     sign_up: ユーザー登録
     profile: プロフィール
+    search: 検索
   footer:
     privacy_policy: プライバシーポリシー
     terms_of_service: 利用規約
@@ -97,6 +98,7 @@ ja:
     new: Post
     favorite: Favorite
     search: Search
+    logout: Logout
   pagination:
     first: 最初
     last: 最後
