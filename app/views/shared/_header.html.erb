@@ -17,9 +17,19 @@
     </div>
   </div>
   <div class="flex-none ml-auto">
-    <%= link_to profile_path, class: "hover:origin-bottom hover:rotate-12 font-thin text-3xl md:text-4xl px-2 md:mx-3" do %>
+
+
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <div class="flex items-center">
+        <%= f.select :model_type, [['投稿', 'post'], ['ユーザー', 'user']], { include_blank: false }, class: "text-xs p-1" %>
+        <%= f.text_field :query, class: "border-l-2 text-xs p-1", placeholder: "検索ワード" %>
+        <%= f.submit t('header.search'), class: "text-sm pl-1 mr-2 hover:text-blue-400" %>
+      </div>
+    <% end %>
+
+
+    <%= link_to profile_path, class: "hover:origin-bottom hover:rotate-12 font-thin text-4xl mx-4 md:mx-10" do %>
       <i class="ri-id-card-fill"></i>
     <% end %>
-    <%= link_to t("header.logout"), logout_path, class: "btn btn-ghost font-thin text-sm md:text-base px-2 md:mx-3", data: { turbo_method: :delete } %>
   </div>
 </div>

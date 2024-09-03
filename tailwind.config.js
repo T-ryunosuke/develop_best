@@ -57,12 +57,21 @@ module.exports = {
               transform: "translateX(-3px) translateY(-3px)",
           },
         },
+        pulsate_fwd: {
+          "0%,to": {
+              transform: "scale(1)"
+          },
+          "70%": {
+              transform: "scale(1.1)"
+          },
+        },
       },
       animation: {
         flash: "flashFade 4.0s forwards",
         quake: 'quake 0.6s linear',
         slide_in_left: "slide_in_left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
         shadow_pop_br: "shadow_pop_br 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both",
+        "pulsate_fwd": "pulsate_fwd 5s ease infinite both",
       },
     },
   },

@@ -7,26 +7,40 @@
           <%= t("sidebar.index") %>
         <% end %>
       </li>
+
       <li class="mb-2 sm:mb-4 hover:animate-bounce">
         <%= link_to new_post_path do %>
           <i class="ri-pencil-line"></i>
           <%= t("sidebar.new") %>
         <% end %>
       </li>
+
       <li class="mb-2 sm:mb-4 hover:animate-bounce">
         <%= link_to liked_posts_user_path(current_user) do %>
           <i class="ri-heart-line"></i>
           <%= t("sidebar.favorite") %>
         <% end %>
       </li>
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
-        <%= link_to "#" do %>
-          <i class="ri-search-2-line"></i>
-          <%= t("sidebar.search") %>
-        <% end %>
+
+      <li class="flex mb-2 sm:mb-4 hover:animate-bounce">
+        <div class="font-thin"  onclick="my_modal_11.showModal()">
+          <i class="ri-logout-box-r-line"></i>
+          <span><%= t("sidebar.logout") %></span>
+        </div>
       </li>
+
       <div class="sm:divider"></div>
     </ul>
   </div>
-  <i class="ri-heart-line"></i>
+  <dialog id="my_modal_11" class="modal">
+    <div class="modal-box">
+      <p class="text-center text-lg font-medium">ログアウトしますか？</p>
+      <div class="modal-action flex justify-between mx-20">
+        <form method="dialog">
+          <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
+        </form>
+        <%= link_to "ログアウト", logout_path, class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
+      </div>
+    </div>
+  </dialog>
 </div>

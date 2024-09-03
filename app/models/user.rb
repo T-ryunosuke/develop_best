@@ -36,4 +36,12 @@ class User < ApplicationRecord
   def followee?(user)
     followees.include?(user)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+  [ "name" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+  [ "comments", "followees", "followers", "liked_posts", "likes", "posts", "relationships", "reverse_of_relationships" ]
+  end
 end

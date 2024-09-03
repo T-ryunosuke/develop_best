@@ -1,0 +1,14 @@
+<div id="<%= dom_id(user) %>">
+  <div class="flex flex-col h-full border rounded-md bg-base-100 shadow-xl hover:animate-shadow_pop_br">
+    <div class="flex flex-col items-center p-6">
+      <div class="flex-grow w-full">
+        <div class="flex justify-between">
+          <%= link_to user_path(user) do %>
+            <%= image_tag(user.avatar.url, class: 'border outline outline-offset-2 outline-blue-400 ring-1 rounded-full size-10 sm:size-12 hover:outline-offset-4') %>
+            <%= user.name %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "relationships/followees"
   get "relationships/followers"
   root "static_pages#top"
-  resources :users, only: %i[new create show] do
+  resources :users, only: %i[new index create show] do
     member do
       get :liked_posts, :followees, :followers
     end
@@ -11,12 +11,16 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: %i[create edit destroy], shallow: true
     resource :likes, only: %i[create destroy]
+    collection do
+      get "category/:category_id", to: "posts#index", as: :category
+    end
   end
   resources :categories, only: %i[new create]
   resource :profile, only: %i[show edit update]
   get "login" => "user_sessions#new"
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy"
+  get "search", to: "search#search"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

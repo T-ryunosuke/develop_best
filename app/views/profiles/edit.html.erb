@@ -11,11 +11,8 @@
           <div class="flex flex-row space-x-4">
             <div class="basis-1/4 flex flex-col items-center">
               <%= f.label :avatar, class: 'sr-only' %>
-              <% if @user.avatar.present? %>
-                <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3', id: 'preview') %>
-              <% else %>
-                <%= image_tag('sample.jpg', class: 'rounded-full size-16 sm:size-20 my-3', id: 'preview') %>
-              <% end %>
+              <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3', id: 'preview') %>
+              
               <label>
                 <span class="text-sm cursor-pointer hover:text-blue-400">画像選択</span>
                 <%= f.file_field :avatar, class: 'hidden', id: 'avatar' %>

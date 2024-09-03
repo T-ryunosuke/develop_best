@@ -8,11 +8,7 @@
       <div class="flex justify-center">
         <div class="flex flex-row space-x-4 w-11/12">
           <div class="basis-1/4 flex justify-center">
-            <% if @user.avatar.present? %>
-              <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3') %>
-            <% else %>
-              <%= image_tag('sample.jpg', class: 'rounded-full size-16 sm:size-20 my-3') %>
-            <% end %>
+            <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3') %>
           </div>
 
           <div class="basis-3/4">
