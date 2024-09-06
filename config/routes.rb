@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy"
   get "search", to: "search#search"
+  get "privacy_policy", to: "static_pages#privacy_policy"
+  get "terms_of_service", to: "static_pages#terms_of_service"
+  get "contact", to: "static_pages#contact"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

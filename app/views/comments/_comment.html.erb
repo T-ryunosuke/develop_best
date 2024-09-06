@@ -2,8 +2,8 @@
   <div class="flex flex-col">
     <div class="flex flex-col">
       <%= comment.user.name %>
-      <div>
-        <%= comment.content %>
+      <div class="leading-tight">
+        <%= simple_format(comment.content) %>
       </div>
     </div>
     <div class="flex items-end justify-end font-light">

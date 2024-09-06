@@ -1,7 +1,14 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto">
-  <div class="m-auto w-2/3 p-4 md:w-3/4 md:p-8 lg:w-4/5 lg:p-12">
-    <%= image_tag "top.svg", class: "w-full h-auto animate-slide_in_left"%>
+<div class="container mx-auto flex flex-col max-h-screen">
+  <div class="flex-1 mx-auto w-2/3 p-4 md:w-3/4 md:p-8 lg:w-4/5 lg:p-12 h-screen">
+    <%= image_tag "top.svg", class: "w-full animate-slide_in_left"%>
+  </div>
+  <div class="w-full z-50 sm:hidden">
+    <div class="flex justify-center text-xs text-white bg-base-content text-base-content p-1 h-full">
+      <%= link_to t("footer.privacy_policy"), privacy_policy_path %>
+      <%= link_to t("footer.terms_of_service"), terms_of_service_path, class: "mx-4" %>
+      <%= link_to t("footer.contact"), contact_path %>
+    </div>
   </div>
 </div>
