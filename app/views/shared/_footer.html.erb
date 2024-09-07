@@ -1,7 +1,5 @@
-<div class="footer fixed bottom-0 justify-end bg-base-content text-base-content p-1 z-50">
-  <aside class="grid-flow-col items-center">
-    <%= link_to t("footer.privacy_policy"), "#", class: "text-white" %>
-    <%= link_to t("footer.terms_of_service"), "#", class: "text-white mx-4" %>
-    <%= link_to t("footer.contact"), "#", class: "text-white mr-6 sm:mr-10" %>
-  </aside>
+<div class="flex justify-end text-xs text-white bg-base-content text-base-content p-1 h-full">
+  <%= link_to t("footer.privacy_policy"), privacy_policy_path %>
+  <%= link_to t("footer.terms_of_service"), terms_of_service_path, class: "mx-4" %>
+  <%= link_to t("footer.contact"), contact_path, class: "mr-6 sm:mr-10" %>
 </div>

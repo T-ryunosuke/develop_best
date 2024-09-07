@@ -31,13 +31,13 @@ class UsersController < ApplicationController
 
   # フォロイー一覧
   def followees
-    user = User.find(params[:user_id])
-    @users = user.followees
+    user = User.find(params[:id])
+    @users = user.followees.order(created_at: :desc).page(params[:page]).per(10)
   end
   # フォロワー一覧
   def followers
-    user = User.find(params[:user_id])
-    @users = user.followers
+    user = User.find(params[:id])
+    @users = user.followers.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   private

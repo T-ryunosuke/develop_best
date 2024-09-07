@@ -1,14 +1,14 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto mt-10">
+<div class="container mx-auto">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-4">
     <% if @posts.present? %>
       <%= render @posts %>
     <% else %>
-      <div class="mb-3">投稿がありません</div>
+      <p class="mb-3">投稿がありません</p>
     <% end %>
-    <div class="mb-20 flex justify-center">
-      <%= paginate @posts %>
-    </div>
+  </div>
+  <div class="mb-10 flex justify-center">
+    <%= paginate @posts %>
   </div>
 </div>

@@ -13,6 +13,12 @@ ja:
   static_pages:
     top:
       title: トップページ
+    privacy_policy:
+      title: プライバシーポリシー
+    terms_of_service:
+      title: 利用規約
+    contact:
+      title: お問い合わせ
   user_sessions:
     new:
       title: ログイン
@@ -27,6 +33,8 @@ ja:
     destroy:
       success: ログアウトしました
   users:
+    index:
+      title: ユーザー一覧
     new:
       title: ユーザー登録
       name: 名前
@@ -40,6 +48,10 @@ ja:
       failure: ユーザー登録に失敗しました
     liked_posts:
       title: お気に入り投稿
+    followees:
+      title: フォロー中
+    followers:
+      title: フォロワー
   profiles:
     show:
       title: プロフィール
@@ -94,10 +106,11 @@ ja:
     terms_of_service: 利用規約
     contact: お問い合わせ
   sidebar:
+    top: Top
     index: Bests
     new: Post
     favorite: Favorite
-    search: Search
+    profile: Profile
     logout: Logout
   pagination:
     first: 最初

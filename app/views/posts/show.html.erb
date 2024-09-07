@@ -1,83 +1,83 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto mt-10">
-  <div class="flex justify-center w-full">
-    <div class="rounded-xl bg-base-100 w-3/4 lg:w-3/5 shadow-xl outline outline-gray-100">
-      <div class="card-body flex flex-col items-center mt-2">
-        <div class="flex-grow w-full px-4">
-          <div class="text-end text-xs sm:text-sm text-gray-400">
-            <%= @post.created_at.strftime("%Y/%m/%d") %>
-          </div>
-          <div class="form-control mb-2 text-3xl md:text-5xl">
-            <%= @post.title %>
-          </div>
+<div class="flex flex-col mx-auto mt-4 max-h-screen sm:min-h-screen sm:max-h-none min-w-full">
+  <div class="flex-1">
+    <div class="flex justify-center w-full">
+      <div class="rounded-xl bg-base-100 w-5/6 lg:w-3/5 shadow-xl outline outline-gray-100">
+        <div class="sm:card-body flex flex-col items-center pt-2 mt-2">
+          <div class="flex-grow w-full px-4">
+            <div class="text-end text-xs sm:text-sm text-gray-400">
+              <%= @post.created_at.strftime("%Y/%m/%d") %>
+            </div>
+            <div class="form-control mb-2 text-3xl md:text-5xl">
+              <%= @post.title %>
+            </div>
 
-          <div class="form-control">
-            <%= link_to @post.category.name, category_posts_path(@post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
-            <div class="divider"></div>
-          </div>
+            <div class="form-control">
+              <%= link_to @post.category.name, category_posts_path(@post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
+              <div class="divider"></div>
+            </div>
 
-          <div  class="flex items-center w-full snap-x overflow-x-scroll border mb-10 bg-black">
-            <% if @post.images.present? %>
-              <% @post.images.each do |image| %>
-                <div class="min-w-full snap-center">
-                  <%= image_tag(image.url) %>
+            <div  class="flex items-center w-full snap-x overflow-x-scroll border mb-10 bg-black">
+              <% if @post.images.present? %>
+                <% @post.images.each do |image| %>
+                  <div class="min-w-full snap-center">
+                    <%= image_tag(image.url) %>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="w-full">
+                  <%= image_tag('sample.jpg') %>
                 </div>
               <% end %>
-            <% else %>
-              <div class="w-full">
-                <%= image_tag('sample.jpg') %>
-              </div>
-            <% end %>
-          </div>
-
-
-          <div class="form-control mb-4 textarea textarea-bordered">
-            <%= @post.content %>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-end mb-4 mr-6">
-        <% if current_user&.mine?(@post) %>
-        <div class="flex space-x-1">
-          <%= link_to edit_post_path(@post) do %>
-            <i class="ri-edit-box-line text-2xl text-blue-500"></i>
-          <% end %>
-          <div class="hover:animate-quake">
-            <i class="ri-delete-bin-5-line text-2xl text-red-400 cursor-pointer" onclick="my_modal.showModal()"></i>
-          </div>
-          <dialog id="my_modal" class="modal">
-            <div class="modal-box">
-              <p class="text-center text-lg font-medium">投稿を削除しますか？</p>
-              <div class="modal-action flex justify-between mx-20">
-                <form method="dialog">
-                  <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
-                </form>
-                <%= link_to "削除", post_path(@post), class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
-              </div>
             </div>
-          </dialog>
+
+
+            <div class="form-control mb-4 textarea textarea-bordered text-lg leading-tight">
+              <%= simple_format(@post.content) %>
+            </div>
+          </div>
         </div>
-        <% else %>
-        <!-- "いいね"アイコンをカードの左端に表示 -->
-        <div class="flex items-center space-x-2">
-          <%= render "likes/like", post: @post, liker: @post.liked_by?(current_user) %>
+        <div class="flex justify-end mb-4 mr-6">
+          <% if current_user&.mine?(@post) %>
+          <div class="flex space-x-1">
+            <%= link_to edit_post_path(@post) do %>
+              <i class="ri-edit-box-line text-2xl text-blue-500"></i>
+            <% end %>
+            <div class="hover:animate-quake">
+              <i class="ri-delete-bin-5-line text-2xl text-red-400 cursor-pointer" onclick="my_modal.showModal()"></i>
+            </div>
+            <dialog id="my_modal" class="modal">
+              <div class="modal-box">
+                <p class="text-center text-lg font-medium">投稿を削除しますか？</p>
+                <div class="modal-action flex justify-between mx-20">
+                  <form method="dialog">
+                    <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
+                  </form>
+                  <%= link_to "削除", post_path(@post), class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
+                </div>
+              </div>
+            </dialog>
+          </div>
+          <% else %>
+          <!-- "いいね"アイコンをカードの左端に表示 -->
+          <div class="flex items-center space-x-2">
+            <%= render "likes/like", post: @post, liker: @post.liked_by?(current_user) %>
+          </div>
+          <% end %>
         </div>
-        <% end %>
+      </div>
+    </div>
+    <div class="flex justify-center w-full mt-16 mb-0 sm:mb-20">
+      <div class="flex flex-col items-center w-full">
+        <h2 class="text-2xl text-bold mb-6 w-4/5 lg:w-4/6 md:ml-6">コメント</h2>
+        <div id="table-comment" class="w-3/4 lg:w-3/5">
+          <%= render @comments %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="flex justify-center w-full mt-16 mb-20">
-    <div class="flex flex-col items-center w-full">
-      <h2 class="text-2xl text-bold mb-6 w-4/5 lg:w-4/6 md:ml-6">コメント</h2>
-      <div id="table-comment" class="w-3/4 lg:w-3/5">
-        <%= render @comments %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="fixed bottom-0 w-full bg-gray-400">
-  <div class="container mx-auto">
+  <div class="w-full bg-gray-400">
     <%= render "comments/form", comment: @comment, post: @post %>
   </div>
 </div>

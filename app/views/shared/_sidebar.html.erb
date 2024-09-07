@@ -1,12 +1,6 @@
-<div id="side-menu" class="fixed top-7 sm:top-10 left-0 w-1/3 bg-base-200 transform -translate-x-full transition-transform duration-300 z-40">
+<div id="side-menu" class="fixed top-7 sm:top-10 left-0 w-1/3 bg-base-200 transform -translate-x-full transition-transform duration-300">
   <div class="w-full h-vh-100 mt-10">
     <ul class="menu text-xl sm:text-2xl font-thin -ml-1 sm:m-6">
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
-        <%= link_to posts_path do %>
-          <i class="ri-star-line"></i>
-          <%= t("sidebar.index") %>
-        <% end %>
-      </li>
 
       <li class="mb-2 sm:mb-4 hover:animate-bounce">
         <%= link_to new_post_path do %>
@@ -19,6 +13,20 @@
         <%= link_to liked_posts_user_path(current_user) do %>
           <i class="ri-heart-line"></i>
           <%= t("sidebar.favorite") %>
+        <% end %>
+      </li>
+
+      <li class="sm:hidden mb-2 sm:mb-4 hover:animate-bounce">
+        <%= link_to profile_path do %>
+          <i class="ri-id-card-fill"></i>
+          <%= t("sidebar.profile") %>
+        <% end %>
+      </li>
+
+      <li class="mb-2 sm:mb-4 hover:animate-bounce">
+        <%= link_to root_path do %>
+          <i class="ri-star-line"></i>
+          <%= t("sidebar.top") %>
         <% end %>
       </li>
 
@@ -35,7 +43,7 @@
   <dialog id="my_modal_11" class="modal">
     <div class="modal-box">
       <p class="text-center text-lg font-medium">ログアウトしますか？</p>
-      <div class="modal-action flex justify-between mx-20">
+      <div class="modal-action flex justify-between mx-8 sm:mx-20">
         <form method="dialog">
           <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
         </form>

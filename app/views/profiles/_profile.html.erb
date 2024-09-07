@@ -1,9 +1,9 @@
-<div class="container mx-auto mt-10">
+<div class="container mx-auto mt-2 sm:mt-10">
   <div class="flex justify-center">
-    <div class="flex flex-col w-3/4">
-      <div class="text-2xl ml-4 md:ml-6 pl-3 my-6 border-l-4 border-gray-400">
+    <div class="flex flex-col w-full sm:w-3/4">
+      <h1 class="text-2xl ml-4 md:ml-6 pl-3 my-6 border-l-4 border-gray-400">
         <%= t('profiles.show.title') %>
-      </div>
+      </h1>
 
       <div class="flex justify-center">
         <div class="flex flex-row space-x-4 w-11/12">
@@ -14,8 +14,8 @@
           <div class="basis-3/4">
             <div class="flex flex-col">
               <div class="flex mb-6 space-x-4">
-                <p>フォロー中: <%= @user.followees.count %></p>
-                <p>フォロワー: <%= @user.followers.count %></p>
+                <p><%= link_to "フォロー中: #{@user.followees.count}", followees_user_path(@user) %></p>
+                <p><%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user) %></p>
               </div>
 
               <label><%= t("profiles.show.name") %></label>
@@ -39,12 +39,12 @@
               </div>
 
               <div class="form-control ml-4 mb-3 w-5/6 textarea textarea-bordered bg-gray-100">
-                <%= @user.profile %>
+                <%= simple_format(@user.profile) %>
               </div>
             </div>
 
             <% if current_user.id == @user.id %>
-              <div class="text-center sm:text-end">
+              <div class="text-end">
                 <%= link_to edit_profile_path do %>
                   <i class="ri-pencil-line font-thin mb-6 sm:mr-24"></i>
                 <% end %>
