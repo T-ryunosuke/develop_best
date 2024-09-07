@@ -29,6 +29,7 @@ gem "kaminari"
 gem "ransack", "~> 4.2", ">= 4.2.1"
 gem "carrierwave", "2.2.2"
 gem "enum_help"
+gem "fog-aws", "~> 3.25"
 # gem "mini_magick", "~> 4.12"
 # gem "fog-aws", '3.21.0'
 
