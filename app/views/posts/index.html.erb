@@ -1,7 +1,7 @@
 <% content_for(:title, t('.title')) %>
 
 <div class="container mx-auto">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-8 sm:mx-4">
     <% if @posts.present? %>
       <%= render @posts %>
     <% else %>

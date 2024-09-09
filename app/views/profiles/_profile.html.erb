@@ -1,4 +1,4 @@
-<div class="container mx-auto mt-2 sm:mt-10">
+<div class="container mx-auto mt-2 sm:mt-4">
   <div class="flex justify-center">
     <div class="flex flex-col w-full sm:w-3/4">
       <h1 class="text-2xl ml-4 md:ml-6 pl-3 my-6 border-l-4 border-gray-400">
@@ -13,40 +13,41 @@
 
           <div class="basis-3/4">
             <div class="flex flex-col">
-              <div class="flex mb-6 space-x-4">
-                <p><%= link_to "フォロー中: #{@user.followees.count}", followees_user_path(@user) %></p>
-                <p><%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user) %></p>
+              <div class="flex mb-6 space-x-4 text-gray-600">
+                <p class="hover:text-black hover:border-b hover:border-black/50"><%= link_to "フォロー中: #{@user.followees.count}", followees_user_path(@user) %></p>
+                <p class="hover:text-black hover:border-b hover:border-black/50"><%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user) %></p>
               </div>
 
               <label><%= t("profiles.show.name") %></label>
-              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+              <div class='w-5/6 lg:w-4/6 ml-4 mb-3 border-b border-black/50 bg-transparent'>
                 <%= @user.name %>
               </div>
 
               <label><%= t("profiles.show.email") %></label>
-              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+              <div class='w-5/6 lg:w-4/6 ml-4 mb-3 border-b border-black/50 bg-transparent'>
                 <%= @user.email %>
               </div>
 
               <label><%= t("profiles.show.gender") %></label>
-              <div class='bg-gray-100 ml-4 mb-3 w-5/6 border-b-2 mb-2'>
+              <div class='w-5/6 lg:w-4/6 ml-4 mb-3 border-b border-black/50 bg-transparent'>
                 <%= @user.gender_i18n %>
               </div>
 
               <label><%= t("profiles.show.age") %></label>
-              <div class='bg-gray-100 ml-4 mb-8 w-5/6 border-b-2 mb-2'>
+              <div class='w-5/6 lg:w-4/6 ml-4 mb-6 border-b border-black/50 bg-transparent'>
                 <%= @user.age_i18n %>
               </div>
 
-              <div class="form-control ml-4 mb-3 w-5/6 textarea textarea-bordered bg-gray-100">
+              <label><%= t("profiles.show.profile") %></label>
+              <div class="w-5/6 lg:w-4/6 mt-1 ml-4 mb-4 textarea bg-transparent w-5/6 border border-black/50 p-2 leading-tight">
                 <%= simple_format(@user.profile) %>
               </div>
             </div>
 
             <% if current_user.id == @user.id %>
-              <div class="text-end">
+              <div class="text-end mb-10 w-5/6 lg:w-4/6">
                 <%= link_to edit_profile_path do %>
-                  <i class="ri-pencil-line font-thin mb-6 sm:mr-24"></i>
+                  <i class="ri-pencil-line text-xl font-thin"></i>
                 <% end %>
               </div>
             <% else %>

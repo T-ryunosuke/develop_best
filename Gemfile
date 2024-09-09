@@ -31,8 +31,7 @@ gem "carrierwave", "2.2.2"
 gem "enum_help"
 gem "fog-aws", "~> 3.25"
 gem "dotenv-rails"
-# gem "mini_magick", "~> 4.12"
-# gem "fog-aws", '3.21.0'
+gem "meta-tags", require: "meta_tags"
 
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

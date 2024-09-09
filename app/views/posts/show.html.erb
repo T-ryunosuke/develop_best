@@ -1,10 +1,10 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="flex flex-col mx-auto mt-4 max-h-screen sm:min-h-screen sm:max-h-none min-w-full">
+<div class="flex flex-col mx-auto mt-4 max-h-screen sm:min-h-screen sm:max-h-none w-full">
   <div class="flex-1">
     <div class="flex justify-center w-full">
-      <div class="rounded-xl bg-base-100 w-5/6 lg:w-3/5 shadow-xl outline outline-gray-100">
-        <div class="sm:card-body flex flex-col items-center pt-2 mt-2">
+      <div class="rounded-xl bg-base-100 w-4/5 sm:w-3/5 lg:w-1/2 shadow-xl outline outline-gray-100 p-4">
+        <div class="flex flex-col items-center pt-2 mt-2">
           <div class="flex-grow w-full px-4">
             <div class="text-end text-xs sm:text-sm text-gray-400">
               <%= @post.created_at.strftime("%Y/%m/%d") %>
@@ -18,11 +18,13 @@
               <div class="divider"></div>
             </div>
 
-            <div  class="flex items-center w-full snap-x overflow-x-scroll border mb-10 bg-black">
+            <div class="flex items-center w-full snap-x overflow-x-scroll border mb-10 bg-black">
               <% if @post.images.present? %>
                 <% @post.images.each do |image| %>
                   <div class="min-w-full snap-center">
-                    <%= image_tag(image.url) %>
+                    <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
+                      <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer">
+                    </a>
                   </div>
                 <% end %>
               <% else %>
@@ -39,11 +41,19 @@
           </div>
         </div>
         <div class="flex justify-end mb-4 mr-6">
+          <% prepare_meta_tags @post %>
+          <% twitter_share_url = "https://x.com/share?url= #{CGI.escape(post_url(@post))}" %>
+          <%= link_to twitter_share_url, target: '_blank', title: "Xでシェア" do %>
+            <i class="ri-twitter-x-line text-2xl text-black/50 pr-2 hover:text-black"></i>
+          <% end %>
+
           <% if current_user&.mine?(@post) %>
           <div class="flex space-x-1">
-            <%= link_to edit_post_path(@post) do %>
+
+            <%= link_to edit_post_path(@post), title: "編集" do %>
               <i class="ri-edit-box-line text-2xl text-blue-500"></i>
             <% end %>
+
             <div class="hover:animate-quake">
               <i class="ri-delete-bin-5-line text-2xl text-red-400 cursor-pointer" onclick="my_modal.showModal()"></i>
             </div>
@@ -68,13 +78,16 @@
         </div>
       </div>
     </div>
+
     <div class="flex justify-center w-full mt-16 mb-0 sm:mb-20">
+      <% if @comments.present? %>
       <div class="flex flex-col items-center w-full">
-        <h2 class="text-2xl text-bold mb-6 w-4/5 lg:w-4/6 md:ml-6">コメント</h2>
+        <h2 class="text-2xl text-bold mb-6 w-4/5 lg:w-4/6 md:ml-6"><i class="ri-chat-1-line"></i> コメント</h2>
         <div id="table-comment" class="w-3/4 lg:w-3/5">
           <%= render @comments %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
   <div class="w-full bg-gray-400">

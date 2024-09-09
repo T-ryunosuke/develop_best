@@ -4,6 +4,7 @@
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= display_meta_tags %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= yield :head %>
@@ -11,6 +12,9 @@
     <!-- <link rel="icon" href="/icon.png" type="image/png"> -->
     <!-- <link rel="icon" href="/icon.svg" type="image/svg+xml"> -->
     <!-- <link rel="apple-touch-icon" href="/icon.png"> -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -43,6 +47,8 @@
     <footer class="w-full z-50 hidden sm:block">
       <%= render "shared/footer" %>
     </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   </body>
 </html>
 

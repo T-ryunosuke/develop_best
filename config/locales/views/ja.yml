@@ -67,7 +67,7 @@ ja:
       profile: 自己紹介
       gender: 性別
       age: 年齢
-      submit: 更新
+      submit: 保存
     update:
       success: プロフィールを更新しました
       failure: プロフィールを更新できませんでした
