@@ -3,30 +3,33 @@
 <div class="container mx-auto mt-0 md:mt-4" >
   <div class="flex justify-center">
     <div class="flex-grow max-w-64 md:max-w-md">
-      <%= form_with model: @user do |form| %>
-        <%= render 'shared/error_messages', object: form.object %>
+      <%= form_with model: @user do |f| %>
         <div class="pt-6">
-          <%= form.label :name, t(".name") %>
-          <%= form.text_field :name, class: "input input-bordered input-xs w-full" %>
+          <%= f.label :name, t(".name"), class: "text-sm" %>
+          <%= f.text_field :name, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1" %>
+          <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
         </div>
 
         <div class="py-8">
-          <%= form.label :email, t(".email") %>
-          <%= form.text_field :email, class: "input input-bordered input-xs w-full" %>
+          <%= f.label :email, t(".email"), class: "text-sm" %>
+          <%= f.text_field :email, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1" %>
+          <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
         </div>
 
         <div class="pb-8">
-          <%= form.label :password, t(".password") %>
-          <%= form.text_field :password, class: "input input-bordered input-xs w-full form-control", id: "user_password" %>
+          <%= f.label :password, t(".password"), class: "text-sm" %>
+          <%= f.text_field :password, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1", id: "user_password" %>
+          <%= render 'shared/error_message_for_field', object: f.object, attribute: :password %>
         </div>
 
         <div class="pb-2 md:mb-8">
-          <%= form.label :password_confirmation, t(".password_confirmation") %>
-          <%= form.text_field :password_confirmation, class: "input input-bordered input-xs w-full" %>
+          <%= f.label :password_confirmation, t(".password_confirmation"), class: "text-sm" %>
+          <%= f.text_field :password_confirmation, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1" %>
+          <%= render 'shared/error_message_for_field', object: f.object, attribute: :password_confirmation %>
         </div>
 
         <div class="text-center my-8">
-          <%= form.submit t('.submit'), class: "btn btn-sm bg-primary-content w-1/4 font-thin md:font-semibold text-gray-700" %>
+          <%= f.submit t('.submit'), class: "border border-gray-400 bg-transeparent text-gray-900 w-1/3 md:w-1/4 font-thin cursor-pointer hover:text-white hover:bg-gray-400 hover:shadow-lg transition duration-500" %>
         </div>
       <% end %>
     </div>

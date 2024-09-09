@@ -1,9 +1,12 @@
 <div id="comment-<%= comment.id %>" class="container mx-auto">
   <div class="flex flex-col">
-    <div class="flex flex-col">
-      <%= comment.user.name %>
-      <div class="leading-tight">
-        <%= simple_format(comment.content) %>
+    <div class="flex gap-4">
+      <%= image_tag(comment.user.avatar.url, class: 'rounded-full size-10 sm:size-12 mt-1') %>
+      <div class="flex flex-col">
+        <%= comment.user.name %>
+        <div class="leading-tight text-sm mt-1">
+          <%= simple_format(comment.content) %>
+        </div>
       </div>
     </div>
     <div class="flex items-end justify-end font-light">

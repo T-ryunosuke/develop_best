@@ -1,10 +1,10 @@
 <div id="<%= dom_id(post) %>">
-  <div class="flex flex-col h-full border rounded-md bg-base-100 shadow-xl hover:animate-shadow_pop_br">
+  <div class="flex flex-col h-full border border-black/50 rounded-md bg-base-100 shadow-xl hover:animate-shadow_pop_br">
     <div class="flex flex-col items-center p-6">
       <div class="flex-grow w-full">
         <div class="flex justify-between">
           <%= link_to user_path(post.user) do %>
-            <%= image_tag(post.user.avatar.url, class: 'border outline outline-offset-2 outline-blue-400 ring-1 rounded-full size-10 md:size-12 hover:outline-offset-4') %>
+            <%= image_tag(post.user.avatar.url, class: 'outline outline-blue-400 rounded-full size-10 hover:outline-offset-2') %>
           <% end %>
 
           <p class="text-end text-xs text-gray-400"><%= time_ago_in_words(post.created_at) %>前</p>
@@ -20,9 +20,9 @@
 
         <div class="flex justify-center">
           <% if post.images.present? %>
-            <%= image_tag(post.images.first.url, class: 'mt-3 outline rounded-sm', size: '200x300') %>
+            <%= image_tag(post.images.first.url, class: 'mt-3 outline rounded-sm w-4/5 aspect-video') %>
           <% else %>
-            <%= image_tag('sample.jpg', class: 'mt-3 outline rounded-sm', size: '200x300') %>
+            <%= image_tag('sample.jpg', class: 'mt-3 outline rounded-sm w-4/5 aspect-video') %>
           <% end %>
         </div>
 

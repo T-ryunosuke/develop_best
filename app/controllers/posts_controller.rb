@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_category, only: %i[index show]
+  helper_method :prepare_meta_tags
 
   def index
     if params[:query].present?
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order(created_at: :desc)
+    prepare_meta_tags(@post)
   end
 
   def edit
@@ -62,5 +64,25 @@ class PostsController < ApplicationController
 
   def set_category
     @category = Category.find_by(id: params[:category_id])
+  end
+
+
+  def prepare_meta_tags(post)
+## このimage_urlにMiniMagickで設定したOGPの生成した合成画像を代入する
+    image_url = "#{request.base_url}/images/ogp.jpg?text=#{CGI.escape(post.title)}"
+    set_meta_tags og: {
+                    site_name: 'best',
+                    title: post.title,
+                    description: '「best」の投稿',
+                    type: 'website',
+                    url: request.original_url,
+                    image: image_url,
+                    locale: 'ja-JP'
+                  },
+                  twitter: {
+                    card: 'summary_large_image',
+                    site: '@https://x.com/dog_kira1215',
+                    image: image_url
+                  }
   end
 end
