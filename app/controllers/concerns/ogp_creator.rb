@@ -1,8 +1,8 @@
 class OgpCreator
-  require 'mini_magick'
-  BASE_IMAGE_PATH = './app/assets/images/{ 背景画像ファイル名を記載　}'
-  GRAVITY = 'center'
-  TEXT_POSITION = '0,0'
+  require "mini_magick"
+  BASE_IMAGE_PATH = "./app/assets/images/ogp.jpg"
+  GRAVITY = "center"
+  TEXT_POSITION = "0,0"
   FONT_SIZE = 65
   INDENTION_COUNT = 16
   ROW_LIMIT = 8
@@ -12,7 +12,7 @@ class OgpCreator
     image = MiniMagick::Image.open(BASE_IMAGE_PATH)
     image.combine_options do |config|
       config.font FONT
-      config.fill 'white'
+      config.fill "white"
       config.gravity GRAVITY
       config.pointsize FONT_SIZE
       config.draw "text #{TEXT_POSITION} '#{text}'"

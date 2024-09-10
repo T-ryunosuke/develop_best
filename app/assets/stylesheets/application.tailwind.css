@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  @apply text-2xl font-medium;
+  /* さらに小さな見出し、普通の太さ、マージン */
+}
+
+h2 {
+  @apply text-xl font-normal;
+  /* 小さな見出し、標準の太さ、マージン */
+}
+
+h3 {
+  @apply text-sm font-thin;
+  /* 小さな見出し、標準の太さ、マージン */
+}
+
+h4 {
+  @apply text-xs font-thin;
+  /* 小さな見出し、標準の太さ、マージン */
+}
+
+table {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+th,
+td {
+  @apply px-6 py-3 text-left text-sm font-medium text-gray-900;
+}
+
+thead {
+  @apply bg-gray-50;
+}
+
+tbody tr:nth-child(odd) {
+  @apply bg-white;
+}
+
+tbody tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+th {
+  @apply text-gray-500;
+}

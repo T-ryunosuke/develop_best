@@ -32,7 +32,7 @@ gem "enum_help"
 gem "fog-aws", "~> 3.25"
 gem "dotenv-rails"
 gem "meta-tags", require: "meta_tags"
-
+gem "redcarpet"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

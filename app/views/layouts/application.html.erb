@@ -17,7 +17,6 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet"/>
@@ -47,43 +46,44 @@
     <footer class="w-full z-50 hidden sm:block">
       <%= render "shared/footer" %>
     </footer>
-    
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <script>
+      $('#menu-toggle').click(function() {
+        $('#side-menu').toggleClass('translate-x-0 -translate-x-full');
+        $('#menu-icon').toggleClass('hidden');
+        $('#close-icon').toggleClass('hidden');
+      });
+
+      $(document).ready(function() {
+        const $imageInput = $('#post_images');
+
+        if ($imageInput.length) {
+          $imageInput.on('change', function(event) {
+            const files = event.target.files;
+            const $previewsContainer = $('#previews');
+            $previewsContainer.empty();  // 既存のプレビューをクリア
+
+            $.each(files, function(index, file) {
+              const reader = new FileReader();
+              const $previewImage = $('<img>', {
+                class: 'mt-3 preview-image max-h-52'
+              });
+
+              reader.onload = function(e) {
+                $previewImage.attr('src', e.target.result);
+                $previewsContainer.append($previewImage);
+              };
+
+              reader.readAsDataURL(file);
+            });
+          });
+        }
+      });
+    </script>
+
   </body>
 </html>
-
-<script>
-  $(document).ready(function() {
-    $('#menu-toggle').click(function() {
-      $('#side-menu').toggleClass('translate-x-0 -translate-x-full');
-      $('#menu-icon').toggleClass('hidden');
-      $('#close-icon').toggleClass('hidden');
-    });
-  });
-
-  $(document).ready(function() {
-    const $imageInput = $('#post_images');
-
-    if ($imageInput.length) {
-      $imageInput.on('change', function(event) {
-        const files = event.target.files;
-        const $previewsContainer = $('#previews');
-        $previewsContainer.empty();  // 既存のプレビューをクリア
-
-        $.each(files, function(index, file) {
-          const reader = new FileReader();
-          const $previewImage = $('<img>', {
-            class: 'mt-3 preview-image max-h-52'
-          });
-
-          reader.onload = function(e) {
-            $previewImage.attr('src', e.target.result);
-            $previewsContainer.append($previewImage);
-          };
-
-          reader.readAsDataURL(file);
-        });
-      });
-    }
-  });
-</script>
