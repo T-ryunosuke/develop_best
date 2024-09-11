@@ -4,22 +4,18 @@
 
 h1 {
   @apply text-2xl font-medium;
-  /* さらに小さな見出し、普通の太さ、マージン */
 }
 
 h2 {
   @apply text-xl font-normal;
-  /* 小さな見出し、標準の太さ、マージン */
 }
 
 h3 {
   @apply text-sm font-thin;
-  /* 小さな見出し、標準の太さ、マージン */
 }
 
 h4 {
   @apply text-xs font-thin;
-  /* 小さな見出し、標準の太さ、マージン */
 }
 
 table {
@@ -45,4 +41,8 @@ tbody tr:nth-child(even) {
 
 th {
   @apply text-gray-500;
+}
+
+.textarea a {
+  @apply underline text-blue-400 hover:text-blue-500;
 }

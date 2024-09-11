@@ -1,8 +1,10 @@
 <div class="flex items-center justify-betwee sm:navbar bg-base-300 z-50">
 
-  <%= link_to root_path, class: "ml-4 cursor-pointer" do %>
-    <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500" %>
-  <% end %>
+  <button class="ml-4 cursor-pointer">
+    <%= link_to root_path do %>
+      <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500" %>
+    <% end %>
+  </button>
 
   <div class="flex-none ml-auto">
     <button><%= link_to t("header.sign_up"), new_user_path, class: "btn btn-ghost cursor-pointer font-thin text-xs sm:text-base px-2 sm:mx-3" %></button>

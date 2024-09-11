@@ -7,8 +7,17 @@
 
       <div class="flex justify-center">
         <div class="flex flex-row space-x-4 w-11/12">
-          <div class="basis-1/4 flex justify-center">
+          <div class="basis-1/4 flex flex-col items-center">
             <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3') %>
+            <% if current_user.id != @user.id %>
+            <div class="text-sm">
+              <% if current_user.followee?(@user) %>
+                <%= link_to "フォローを外す", user_relationships_path(@user), data: { "turbo-method": :delete }, class: "bg-transparent border-b border-red-400 px-1 text-red-400 hover:text-gray-400 hover:border-transparent transition duration-500" %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(@user), data: { "turbo-method": :post }, class: "bg-transparent border-b border-blue-500 text-blue-500 px-1 hover:text-gray-400 hover:border-transparent transition duration-500" %>
+              <% end %>
+            </div>
+            <% end %>
           </div>
 
           <div class="basis-3/4">
@@ -50,12 +59,6 @@
                   <i class="ri-pencil-line text-xl font-thin"></i>
                 <% end %>
               </div>
-            <% else %>
-              <% if current_user.followee?(@user) %>
-                <%= link_to "フォロー外す", user_relationships_path(@user), data: { "turbo-method": :delete } %>
-              <% else %>
-                <%= link_to "フォローする", user_relationships_path(@user), data: { "turbo-method": :post } %>
-              <% end %>
             <% end %>
 
           </div>

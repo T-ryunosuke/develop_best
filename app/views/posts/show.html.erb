@@ -10,32 +10,44 @@
               <%= @post.created_at.strftime("%Y/%m/%d") %>
             </div>
             <div class="form-control mb-2 text-3xl md:text-5xl">
-              <%= @post.title %>
+              <%= simple_format(@post.title) %>
             </div>
 
             <div class="form-control">
               <%= link_to @post.category.name, category_posts_path(@post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
-              <div class="divider"></div>
+              <div class="border-b-2 border-black/50 mt-4 mb-8"></div>
             </div>
 
-            <div class="flex items-center w-full snap-x overflow-x-scroll border mb-10 bg-black">
-              <% if @post.images.present? %>
-                <% @post.images.each do |image| %>
-                  <div class="min-w-full snap-center">
-                    <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
-                      <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer">
-                    </a>
+
+            <div class="relative">
+              <div class="flex items-center w-5/6 mx-auto snap-x overflow-x-scroll border border-black/50 mb-6 bg-black rounded-sm" id="image-gallery">
+                <% if @post.images.present? %>
+                  <% @post.images.each do |image| %>
+                    <div class="min-w-full snap-center">
+                      <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
+                        <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer">
+                      </a>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="w-full">
+                    <%= image_tag('sample.jpg') %>
                   </div>
                 <% end %>
-              <% else %>
-                <div class="w-full">
-                  <%= image_tag('sample.jpg') %>
-                </div>
-              <% end %>
+              </div>
+
+              <!-- スライダーのボタン -->
+              <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-l">
+                &#10094;
+              </button>
+              <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-r">
+                &#10095;
+              </button>
             </div>
 
 
-            <div class="form-control mb-4 textarea textarea-bordered text-lg leading-tight">
+
+            <div class="form-control mx-auto mb-4 textarea rounded-sm text-lg leading-tight break-words">
               <%= markdown(@post.content) %>
             </div>
           </div>

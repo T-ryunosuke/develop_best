@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   attr_accessor :category_name
 
 
+
   def save_with_category(category_name)
     if category_name.present?
       category = Category.find_or_create_by(name: category_name)
@@ -33,7 +34,7 @@ class Post < ApplicationRecord
     update(
       title: post_params[:title].presence || self.title,
       content: post_params[:content].presence || self.content,
-      images: post_params[:images].presence || self.images
+      images: post_params[:images].presence || self.images_cache
     )
   end
 
