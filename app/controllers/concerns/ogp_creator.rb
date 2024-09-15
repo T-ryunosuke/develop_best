@@ -1,6 +1,6 @@
 class OgpCreator
   require "mini_magick"
-  BASE_IMAGE_PATH = "./app/assets/images/ogp.jpeg"
+  BASE_IMAGE_PATH = "./app/assets/images/ogp.png"
   GRAVITY = "center"
   TEXT_POSITION = "0,-20"
   FONT = './app/assets/fonts/ZenKakuGothicNew-Regular.ttf'
