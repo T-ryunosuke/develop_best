@@ -7,15 +7,15 @@
             <%= image_tag(post.user.avatar.url, class: 'outline outline-blue-400 rounded-full size-10 hover:outline-offset-2') %>
           <% end %>
 
-          <p class="text-end text-xs text-gray-400"><%= time_ago_in_words(post.created_at) %>前</p>
+          <p class="text-end text-xs text-gray-400 font-noto"><%= time_ago_in_words(post.created_at) %>前</p>
         </div>
 
-        <div class="text-2xl lg:text-3xl line-clamp-1 p-1 mt-2">
+        <div class="text-2xl xl:text-3xl line-clamp-1 p-1 mt-2 font-noto">
           <div><%= link_to post.title, post_path(post) %></div>
         </div>
 
         <div>
-          <%= link_to post.category.name, category_posts_path(post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110" %>
+          <%= link_to post.category.name, category_posts_path(post.category),class: "badge badge-primary badge-outline badge-sm text-xs hover:scale-110 font-noto font-light" %>
         </div>
 
         <div class="flex justify-center">

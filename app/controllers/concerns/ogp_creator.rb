@@ -2,17 +2,18 @@ class OgpCreator
   require "mini_magick"
   BASE_IMAGE_PATH = "./app/assets/images/ogp.jpg"
   GRAVITY = "center"
-  TEXT_POSITION = "0,0"
+  TEXT_POSITION = "0,-20"
+  FONT = './app/assets/fonts/ZenKakuGothicNew-Regular.ttf'
   FONT_SIZE = 65
-  INDENTION_COUNT = 16
-  ROW_LIMIT = 8
+  INDENTION_COUNT = 12
+  ROW_LIMIT = 3
 
   def self.build(text)
     text = prepare_text(text)
     image = MiniMagick::Image.open(BASE_IMAGE_PATH)
     image.combine_options do |config|
       config.font FONT
-      config.fill "white"
+      config.fill "black"
       config.gravity GRAVITY
       config.pointsize FONT_SIZE
       config.draw "text #{TEXT_POSITION} '#{text}'"

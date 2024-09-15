@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="bg-gray-100 h-full">
+<html class="bg-gray-100 h-scroll scroll-smooth">
   <head>
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -40,7 +40,7 @@
     <% end %>
 
     <main class="flex flex-1 mt-20 h-screen">
-      <%= yield %>
+      <%= yield  %>
     </main>
 
     <footer class="w-full z-50 hidden sm:block">

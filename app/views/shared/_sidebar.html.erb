@@ -3,6 +3,13 @@
     <ul class="menu text-xl sm:text-2xl font-thin -ml-1 sm:m-6">
 
       <li class="mb-2 sm:mb-4 hover:animate-bounce">
+        <%= link_to posts_path do %>
+          <i class="ri-star-line"></i>
+          <%= t("sidebar.list") %>
+        <% end %>
+      </li>
+
+      <li class="mb-2 sm:mb-4 hover:animate-bounce">
         <%= link_to new_post_path do %>
           <i class="ri-pencil-line"></i>
           <%= t("sidebar.new") %>
@@ -20,13 +27,6 @@
         <%= link_to profile_path do %>
           <i class="ri-id-card-fill"></i>
           <%= t("sidebar.profile") %>
-        <% end %>
-      </li>
-
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
-        <%= link_to root_path do %>
-          <i class="ri-star-line"></i>
-          <%= t("sidebar.top") %>
         <% end %>
       </li>
 
