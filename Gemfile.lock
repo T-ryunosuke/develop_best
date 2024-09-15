@@ -427,6 +427,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   meta-tags
+  mini_magick
   pg (~> 1.1)
   pry-rails
   puma (>= 5.0)

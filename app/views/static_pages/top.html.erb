@@ -1,9 +1,146 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto flex flex-col max-h-screen">
-  <div class="flex-1 mx-auto w-2/3 p-4 md:w-3/4 md:p-8 lg:w-4/5 lg:p-12 h-screen">
-    <%= image_tag "top.svg", class: "w-full animate-slide_in_left"%>
+<div class="h-full mx-auto flex flex-col">
+
+  <div class="flex items-center justify-center h-full  mt-30 sm:mt-none">
+    <%= image_tag "top.svg", class: "animate-slide_in_left z-10 w-5/6"%>
   </div>
+  <div class="contents">
+    <ul id="toUpObjects" class="toUpObjects flex justify-evenly fixed w-11/12 left-1/2 -bottom-1 -translate-x-1/2 translate-y-1/2 opacity-40 z-5"></ul>
+  </div>
+
+  <div class="w-11/12 mt-10 mb-20 mx-auto">
+    <div class="contents2">
+      <div class="h1-box grid place-items-center tracking-widest my-10">
+        <h1 class="relative text-6xl font-noto font-thin py-1 px-2">
+          <p class="subheading bg-black/50 text-white px-2 pt-1 pb-2">機能紹介</p>
+          <div class="overwrap absolute top-0 right-0 h-full w-full bg-gray-100">
+          </div>
+        </h1>
+      </div>
+      <div class="contentsInner w-5/6 mx-auto">
+        <ul class="contentsList grid grid-cols-2 md:grid-cols-4 gap-10 mt-10 place-items-center *:text-center *:text-black/50 *:w-36 *:text-xl *:py-2 *:cursor-pointer">
+          <li class="hover:animate-quake hover:text-black"><a href="#login" data-turbo="false">ログイン</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#post-create" data-turbo="false">投稿</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#posts-list" data-turbo="false">投稿一覧</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#post-detail" data-turbo="false">投稿詳細</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#comment" data-turbo="false">コメント</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#like" data-turbo="false">いいね</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#share" data-turbo="false">シェア</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#search
+          " data-turbo="false">検索</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#profile" data-turbo="false">プロフィール</a></li>
+          <li class="hover:animate-quake hover:text-black"><a href="#follow" data-turbo="false">フォロー</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section id="login" class="p-10 border border-black/50 bg-stone-200 h-96 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">ログイン</h2>
+    <div class="explanation h-full flex items-center pb-8">
+      <a href="<%= asset_path('login.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('login.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">ログインには<br><br>登録した &nbsp;<span class="text-gray-800">メールアドレス</span>&nbsp; と &nbsp;<span class="text-gray-800">パスワード（４文字以上）</span><br><br>が必要になります。</p>
+    </div>
+  </section>
+
+  <section id="post-create" class="p-10 border border-black/50 bg-stone-200 min-h-96 my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿</h2>
+    <div class="explanation h-full flex items-center pt-6 min-h-96">
+      <a href="<%= asset_path('post.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">あなたがbestと感じた<br><br><span class="text-gray-800">「もの」「場所」「体験」などを投稿</span>してください。<br><br><span class="text-gray-800">複数画像の選択</span>が可能です。<br><br>また、内容の入力で一部<span class="text-gray-800">マークダウン形式</span>が使用できます。<br><br>自分の投稿であれば、<span class="text-gray-800"> 編集 / 削除 </span>も可能です。</p>
+    </div>
+  </section>
+
+  <section id="posts-list" class="p-10 border border-black/50 bg-stone-200 h-96 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿一覧</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('post.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">投稿が<span class="text-gray-800">一覧で表示</span>されます。<br><br>自分の投稿は<span class="text-gray-800"> 編集 / 削除 </span>も可能です。</p>
+    </div>
+  </section>
+
+  <section id="post-detail" class="p-10 border border-black/50 bg-stone-200 h-96 my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿詳細</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('post_detail.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post_detail.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">投稿の<span class="text-gray-800">タイトルをクリック</span>すると、その<span class="text-gray-800">詳細を表示</span>します。<br><br>画像は<span class="text-gray-800"> スライド / 拡大 可能</span>です。</p>
+    </div>
+  </section>
+
+  <section id="comment" class="p-10 border border-black/50 bg-stone-200 h-96  shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">コメント</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('comment.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('comment.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">投稿の詳細画面でその<span class="text-gray-800">投稿に対してコメント</span>をすることができます。<br><br>自分のコメントは<span class="text-gray-800"> 削除 </span>できます。</p>
+    </div>
+  </section>
+
+  <section id="like" class="p-10 border border-black/50 bg-stone-200 h-96 my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">いいね</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('like.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('like.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">他のユーザーが<span class="text-gray-800">投稿した内容にいいねをつける</span>ことができます。<br><br>投稿の一覧か詳細の画面で<span class="text-gray-800">ハートのアイコンをクリック</span>してください。</p>
+    </div>
+  </section>
+
+
+  <section id="share" class="p-10 border border-black/50 bg-stone-200 h-96 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">シェア</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('share.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('share.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">投稿の詳細画面で、その投稿を<span class="text-gray-800">X'sにシェアする</span>ことができます。</p>
+    </div>
+  </section>
+
+
+  <section id="search" class="p-10 border border-black/50 bg-stone-200 h-96 my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">検索</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('search.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('search.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">ヘッダーに検索ボックスがあります。<br><br>プルダウンで<span class="text-gray-800">検索対象を選択</span>して、<span class="text-gray-800">キーワード検索</span>してください。</p>
+    </div>
+  </section>
+
+
+  <section id="profile" class="p-10 border border-black/50 bg-stone-200 h-96 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">プロフィール</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('profile.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('profile.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10"><span class="text-gray-800">あなたのプロフィールを編集</span>したり、<span class="text-gray-800">他のユーザーのプロフィールを確認</span>できます。</p>
+    </div>
+  </section>
+
+  <section id="follow" class="p-10 border border-black/50 bg-stone-200 h-96 mt-10 mb-32 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">フォロー</h2>
+    <div class="explanation h-full flex items-center justify-center pb-8">
+      <a href="<%= asset_path('follow.gif') %>" class="my-auto basis-1/3" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('follow.gif', alt: '説明画像') %>
+      </a>
+      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal ml-10">プロフィール画面から<span class="text-gray-800">他のユーザーをフォローする</span>ことができます。<br><br><span class="text-gray-800">フォロー中 や フォロワー の人数表示をクリック</span>することで一覧が表示されます。</p>
+    </div>
+  </section>
+
+
+
   <div class="w-full z-50 sm:hidden">
     <div class="flex justify-center text-xs text-white bg-base-content text-base-content p-1 h-full">
       <%= link_to t("footer.privacy_policy"), privacy_policy_path %>

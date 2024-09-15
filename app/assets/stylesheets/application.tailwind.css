@@ -1,9 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+#toUpObjects li{
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  will-change: transform;
+  &:nth-of-type(3n) {
+    border: 1px solid black;
+    filter: drop-shadow(0 0 3px black);
+  }
+  &:not(:nth-of-type(3n)) {
+    background-color: gray;
+  }
+}
+
+.contentsList li:before{
+  @apply border border-black/50 hover:border-black w-full h-full absolute top-0 left-0 -skew-x-[30deg] transition-shadow duration-200 delay-300;
+  pointer-events: none;
+}
+
+.contentsList li.show {
+  @apply before:shadow-[5px_5px_#ddd]
+}
+
+
 h1 {
-  @apply text-2xl font-medium;
+  @apply text-2xl font-normal;
 }
 
 h2 {

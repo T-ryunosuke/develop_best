@@ -1,5 +1,8 @@
 document.addEventListener("turbo:load", function() {
   const gallery = document.getElementById('image-gallery');
+
+  if (!gallery) return;
+
   const nextBtn = document.getElementById('next-btn');
   const prevBtn = document.getElementById('prev-btn');
   const items = gallery.querySelectorAll('.snap-center');

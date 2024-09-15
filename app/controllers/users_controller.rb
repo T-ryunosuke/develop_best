@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: %i[new create]
+
   def index
     if params[:query].present?
       @users = User.ransack(name_eq: params[:query]).result.order(created_at: :desc).page(params[:page]).per(10)
