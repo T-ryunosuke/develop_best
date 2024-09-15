@@ -54,7 +54,7 @@
         </div>
         <div class="flex justify-end mb-4 mr-6">
           <% prepare_meta_tags @post %>
-          <% twitter_share_url = "https://x.com/share?url= #{CGI.escape(post_url(@post))}" %>
+          <% twitter_share_url = "https://x.com/share?url=#{CGI.escape(post_url(@post))}" %>
           <%= link_to twitter_share_url, target: '_blank', title: "Xでシェア" do %>
             <i class="ri-twitter-x-line text-2xl text-black/50 pr-2 hover:text-black"></i>
           <% end %>
