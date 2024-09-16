@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "images/ogp.jpg", to: "images#ogp", as: "images_ogp"
+  get "images/ogp.png", to: "images#ogp", as: "images_ogp"
   get "relationships/followees"
   get "relationships/followers"
   root "static_pages#top"
