@@ -1,6 +1,6 @@
 class OgpCreator
   require "mini_magick"
-  BASE_IMAGE_PATH = "./app/assets/images/ogp.png"
+  BASE_IMAGE_PATH = "./app/assets/images/x-post.png"
   GRAVITY = "center"
   TEXT_POSITION = "0,-20"
   FONT = './app/assets/fonts/ZenKakuGothicNew-Regular.ttf'
@@ -20,8 +20,7 @@ class OgpCreator
     end
   end
 
-  private
   def self.prepare_text(text)
-    text.to_s.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
+    text.to_s.scan(/.{1,#{INDENTION_COUNT}}/o)[0...ROW_LIMIT].join("\n")
   end
 end
