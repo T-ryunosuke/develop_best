@@ -15,7 +15,7 @@
 
   <div class="flex-none ml-auto">
 
-    <%= form_with url: search_path, method: :get, local: true, class: "" do |f| %>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
       <div class="flex items-center">
         <%= f.select :model_type, [['投稿', 'post'], ['ユーザー', 'user']], { include_blank: false }, class: "text-xs p-1 bg-transparent outline-none" %>
         <%= f.text_field :query, class: "sm:text-xs px-1 py-0.5 sm:p-1 w-32 outline-none font-thin", placeholder: "検索ワード" %>
