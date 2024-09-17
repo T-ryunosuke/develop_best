@@ -9,6 +9,8 @@ document.addEventListener("turbo:load", function () {
   const toUpObjects = document.getElementById('toUpObjects'),
     objectNumber = 60;
 
+  if (!toUpObjects) return;
+
 
   for (let i = 0; i < objectNumber; i++) {
     const li = document.createElement('li')

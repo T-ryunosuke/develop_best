@@ -25,7 +25,7 @@
                   <% @post.images.each do |image| %>
                     <div class="min-w-full snap-center">
                       <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
-                        <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer">
+                        <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer mx-auto">
                       </a>
                     </div>
                   <% end %>
