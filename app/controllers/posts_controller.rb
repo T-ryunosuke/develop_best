@@ -80,8 +80,8 @@ class PostsController < ApplicationController
                     locale: "ja-JP"
                   },
                   twitter: {
-                    card: "summary_large_image",
-                    site: "@https://x.com/dog_kira1215",
+                    card: 'summary_large_image',
+                    site: '@dog_kira1215',
                     image: image_url
                   }
   end
