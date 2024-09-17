@@ -12,12 +12,26 @@
     <!-- <link rel="icon" href="/icon.png" type="image/png"> -->
     <!-- <link rel="icon" href="/icon.svg" type="image/svg+xml"> -->
     <!-- <link rel="apple-touch-icon" href="/icon.png"> -->
+    <% if @post %>
+      <!-- OGP Meta Tags -->
+      <meta property="og:site_name" content="best">
+      <meta property="og:title" content="<%= @post.title %>">
+      <meta property="og:description" content="「best」の投稿">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="<%= request.original_url %>">
+      <meta property="og:image" content="<%= "#{request.base_url}/images/ogp.jpg?text=#{CGI.escape(@post.title)}" %>">
+      <meta property="og:locale" content="ja-JP">
+
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:site" content="@dog_kira1215">
+      <meta name="twitter:image" content="<%= "#{request.base_url}/images/ogp.jpg?text=#{CGI.escape(@post.title)}" %>">
+    <% end %>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= display_meta_tags %>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet"/>
     <!-- Google tag (gtag.js) -->
