@@ -24,6 +24,16 @@ module Myapp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # CORS設定
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :options]
+      end
+    end
+
     # Rails generator の設定
     config.generators do |g|
       g.helper false
