@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resource :likes, only: %i[create destroy]
     collection do
       get "category/:category_id", to: "posts#index", as: :category
+      get :follow
     end
   end
   resources :categories, only: %i[new create]
