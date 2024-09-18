@@ -1,17 +1,21 @@
 class PostsController < ApplicationController
-  before_action :set_category, only: %i[index show]
+  before_action :set_category, only: %i[index follow show]
   helper_method :prepare_meta_tags
 
   def index
     if params[:query].present?
       @posts = Post.ransack(title_or_content_cont: params[:query]).result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    elsif @category
+      @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(10)
     else
-      if @category
-        @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(10)
-      else
-        @posts = @p.result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
-      end
+      @posts = @p.result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
     end
+  end
+
+  def follow
+    # フォローしているユーザーの投稿をRansackで検索・フィルタリング
+    @q = Post.joins(:user).where(user_id: current_user.followees.pluck(:id)).ransack(params[:q])
+    @posts = @q.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -21,7 +25,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save_with_category(post_params[:category_name])
-      redirect_to posts_path(@post), success: t("posts.create.success")
+      redirect_to posts_path, success: t("posts.create.success")
     else
       flash.now[:info] = t("posts.create.failure")
       render :new, status: :unprocessable_entity
@@ -63,7 +67,11 @@ class PostsController < ApplicationController
   end
 
   def set_category
-    @category = Category.find_by(id: params[:category_id])
+    if params[:category_name].present?
+      @category = Category.find_by(name: params[:category_name])
+    elsif params[:category_id].present?
+      @category = Category.find_by(id: params[:category_id])
+    end
   end
 
 

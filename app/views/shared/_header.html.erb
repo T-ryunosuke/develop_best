@@ -17,7 +17,7 @@
 
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <div class="flex items-center">
-        <%= f.select :model_type, [['投稿', 'post'], ['ユーザー', 'user']], { include_blank: false }, class: "text-xs p-1 bg-transparent outline-none" %>
+        <%= f.select :model_type, [['投稿内容', 'post'], ['ユーザー', 'user'], ['カテゴリ', 'category']], { include_blank: false }, class: "text-xs p-1 bg-transparent outline-none" %>
         <%= f.text_field :query, class: "sm:text-xs px-1 py-0.5 sm:p-1 w-32 outline-none font-thin", placeholder: "検索ワード" %>
         <%= f.submit t('header.search'), class: "cursor-pointer text-sm pl-1 mr-6 hover:text-blue-400" %>
       </div>

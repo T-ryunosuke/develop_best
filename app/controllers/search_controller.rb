@@ -6,6 +6,9 @@ class SearchController < ApplicationController
       redirect_to posts_path(query: query) # 投稿検索結果のビュー
     elsif model_type == "user"
       redirect_to users_path(query: query) # ユーザー検索結果のビュー
+    elsif model_type == "category"
+      # カテゴリー名をそのまま渡す
+      redirect_to posts_path(category_name: query)
     else
       # デフォルトの動作やエラーハンドリング
       redirect_back(fallback_location: root_path)
