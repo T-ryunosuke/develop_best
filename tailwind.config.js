@@ -11,7 +11,7 @@ module.exports = {
         noto: ['Noto Sans JP', 'sans-serif'],
       },
       minWidth: {
-        'screen': '100vw', // min-w-screen のように使える設定を追加
+        'screen': '100vw',
       },
       height: {
         'vh-5': '5vh',

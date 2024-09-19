@@ -1,9 +1,18 @@
 <% content_for(:title, t('.title')) %>
+<meta name="turbo-cache-control" content="no-cache">
 
-<div class="h-full mx-auto flex flex-col">
+<div id="endLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
+  <div id="loadBox" class="bg-gray-100 w-full h-full">
+    <div id="finishLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
+      <span id="loadText" class="flex items-center justify-center w-full h-full">loading...</span>
+    </div>
+  </div>
+</div>
+
+<div class="h-full mx-auto flex flex-col" data-turbo-temporary>
 
   <div class="flex items-center justify-center h-full  mt-30 sm:mt-none">
-    <%= image_tag "top.svg", class: "animate-slide_in_left z-10 w-5/6"%>
+    <%= image_tag "top.svg", class: "z-10 w-5/6"%>
   </div>
   <div class="contents">
     <ul id="toUpObjects" class="toUpObjects flex justify-evenly fixed w-11/12 left-1/2 -bottom-1 -translate-x-1/2 translate-y-1/2 opacity-40 z-5"></ul>

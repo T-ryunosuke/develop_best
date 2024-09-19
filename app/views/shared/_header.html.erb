@@ -9,7 +9,7 @@
     </svg>
   </button>
 
-  <%= link_to root_path, class: "sm:ml-4" do %>
+  <%= link_to root_path, class: "sm:ml-4", data: { turbo_frame: "_top" } do %>
     <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500" %>
   <% end %>
 
