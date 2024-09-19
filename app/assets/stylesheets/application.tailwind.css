@@ -4,6 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes ani {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes ani2 {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+#endLoading.action {
+  background-image: url('/assets/sprite.png');
+  background-size: 2300% 100%;
+  animation: ani .6s steps(22) both;
+}
+
+#finishLoading.action {
+  background-image: url('/assets/sprite_reverse.png');
+  background-size: 2300% 100%;
+  animation: ani .6s steps(22) both;
+}
+
+#loadText.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
 #toUpObjects li{
   aspect-ratio: 1;
   border-radius: 9999px;

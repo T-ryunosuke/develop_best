@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import './image_slider';
+import "./loading";
 import "./gsap";
 import "./avatar_preview";
