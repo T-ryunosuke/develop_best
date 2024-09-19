@@ -15,18 +15,5 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs ya
 RUN useradd -m -u $UID rails
 RUN mkdir /myapp
 WORKDIR /myapp
-# GemfileとGemfile.lockのコピーとbundle install
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
-# アプリケーションのソースコードをコピー
 COPY . /myapp
-
-# アプリケーションのオーナーを設定
 RUN chown rails:rails -R /myapp
-
-# アセットのプリコンパイル
-RUN rails assets:precompile
-
-# コンテナ起動時のコマンド
-CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0"]
