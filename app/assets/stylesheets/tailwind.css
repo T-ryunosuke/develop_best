@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.contentsList li:before{
+  @apply border border-black/50 hover:border-black w-full h-full absolute top-0 left-0 -skew-x-[30deg] transition-shadow duration-200 delay-300;
+  pointer-events: none;
+}
+
+.contentsList li.show {
+  @apply before:shadow-[5px_5px_#ddd]
+}
+
+
+h1 {
+  @apply text-2xl font-normal;
+}
+
+h2 {
+  @apply text-xl font-normal;
+}
+
+h3 {
+  @apply text-sm font-thin;
+}
+
+h4 {
+  @apply text-xs font-thin;
+}
+
+table {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+th,
+td {
+  @apply px-6 py-3 text-left text-sm font-medium text-gray-900;
+}
+
+thead {
+  @apply bg-gray-50;
+}
+
+tbody tr:nth-child(odd) {
+  @apply bg-white;
+}
+
+tbody tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+th {
+  @apply text-gray-500;
+}
+
+.textarea a {
+  @apply underline text-blue-400 hover:text-blue-500;
+}
