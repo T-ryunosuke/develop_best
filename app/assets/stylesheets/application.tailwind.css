@@ -24,13 +24,13 @@
 }
 
 #endLoading.action {
-  background-image:url('/assets/sprite.png');
+  @apply bg-sprite;
   background-size: 2300% 100%;
   animation: ani .6s steps(22) both;
 }
 
 #finishLoading.action {
-  background-image: url('/assets/x-post.png');
+  @apply bg-sprite_reverse;
   background-size: 2300% 100%;
   animation: ani .6s steps(22) both;
 }

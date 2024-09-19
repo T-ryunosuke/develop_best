@@ -13,6 +13,10 @@ module.exports = {
       minWidth: {
         'screen': '100vw',
       },
+      backgroundImage: {
+        'sprite': "url('/assets/sprite.png')",
+        'sprite_reverse': "url('/assets/sprite_reverse.png')"
+      },
       height: {
         'vh-5': '5vh',
         'vh-10': '10vh',
