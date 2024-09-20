@@ -34,7 +34,7 @@ function startEndAnimation() {
   return new Promise((resolve) => {
     const endLoadingElement = document.getElementById("endLoading");
     if (endLoadingElement) {
-      document.getElementById("loadBox").classList.add('hidden', 'invisible');
+      document.getElementById("loadBox").classList.add('hidden');
       endLoadingElement.classList.add('action');
       endLoadingElement.addEventListener('animationend', function onAnimationEnd() {
         endLoadingElement.removeEventListener('animationend', onAnimationEnd);
@@ -49,7 +49,7 @@ function removeLoading() {
   return new Promise((resolve) => {
     const endLoadingElement = document.getElementById("endLoading");
     if (endLoadingElement) {
-      endLoadingElement.classList.add('hidden', 'invisible');
+      endLoadingElement.classList.add('hidden');
       resolve();
     }
   });
