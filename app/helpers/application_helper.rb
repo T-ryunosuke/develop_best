@@ -14,26 +14,26 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      site: 'best',
-      title: 'best',
+      site: "best",
+      title: "best",
       reverse: true,
-      charset: 'utf-8',
-      description: 'あなたがbestと感じた「もの」「場所」「体験」などを投稿してください。',
-      keywords: 'best, ベスト, ランキング, SNS, レビュー, 投稿',
+      charset: "utf-8",
+      description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリ",
+      keywords: "best, ベスト, ランキング, SNS, レビュー, 投稿",
       canonical: request.original_url,
       og: {
-        site_name: 'best',
-        title: 'best',
-        description: 'あなたがbestと感じた「もの」「場所」「体験」などを投稿してください。',
-        type: 'website',
+        site_name: "best",
+        title: "best",
+        description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリ",
+        type: "website",
         url: request.original_url,
-        image: image_url('x-post.png'),# 配置するパスやファイル名によって変更する
-        local: 'ja-JP',
+        image: image_url("defaults.png"),
+        local: "ja-JP"
       },
       twitter: {
-        card: 'summary_large_image',
-        site: '@dog_kira1215',
-        image: image_url('x-post.png'),# 配置するパスやファイル名によって変更
+        card: "summary_large_image",
+        site: "@dog_kira1215",
+        image: image_url("defaults.png")
       }
     }
   end
