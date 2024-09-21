@@ -3,7 +3,7 @@ class OgpCreator
   BASE_IMAGE_PATH = "./app/assets/images/x-post.png"
   GRAVITY = "center"
   TEXT_POSITION = "0,-20"
-  FONT = './app/assets/fonts/ZenKakuGothicNew-Regular.ttf'
+  FONT = "./app/assets/fonts/ZenKakuGothicNew-Regular.ttf"
   FONT_SIZE = 65
   INDENTION_COUNT = 12
   ROW_LIMIT = 3
