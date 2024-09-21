@@ -151,10 +151,6 @@
 
   <div class="w-full z-50 sm:hidden">
     <div class="flex justify-center text-xs text-white bg-base-content text-base-content p-1 h-full">
-              <% twitter_share_url = "https://twitter.com/share" %>
-          <%= link_to twitter_share_url, target: '_blank', title: "Xでシェア" do %>
-            <i class="ri-twitter-x-line text-2xl text-black/50 pr-2 hover:text-black"></i>
-          <% end %>
       <%= link_to t("footer.privacy_policy"), privacy_policy_path %>
       <%= link_to t("footer.terms_of_service"), terms_of_service_path, class: "mx-4" %>
       <%= link_to t("footer.contact"), contact_path %>
