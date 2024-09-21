@@ -77,20 +77,20 @@ class PostsController < ApplicationController
 
   def prepare_meta_tags(post)
     ## このimage_urlにMiniMagickで設定したOGPの生成した合成画像を代入する
-    image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(post.title)}"
+    @image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(post.title)}"
     set_meta_tags og: {
                     site_name: 'best',
                     title: post.title,
                     description: '「best」の投稿',
                     type: 'website',
                     url: request.original_url,
-                    image: image_url,
+                    image: @image_url,
                     locale: 'ja-JP'
                   },
                   twitter: {
                     card: 'summary_large_image',
                     site: '@dog_kira1215',
-                    image: image_url
+                    image: @image_url
                   }
   end
 end
