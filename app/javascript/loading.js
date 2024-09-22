@@ -34,7 +34,7 @@ function startEndAnimation() {
   return new Promise((resolve) => {
     const endLoadingElement = document.getElementById("endLoading");
     if (endLoadingElement) {
-      document.getElementById("loadBox").classList.add('hidden');
+      document.getElementById("loadBox").classList.add('fadeout');
       endLoadingElement.classList.add('action');
       endLoadingElement.addEventListener('animationend', function onAnimationEnd() {
         endLoadingElement.removeEventListener('animationend', onAnimationEnd);
@@ -67,5 +67,7 @@ async function execute() {
 
 
 document.addEventListener("turbo:load", function () {
-  execute();
+  if (document.getElementById("endLoading")) {
+    execute();
+  }
 });

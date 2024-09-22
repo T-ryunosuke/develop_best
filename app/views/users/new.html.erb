@@ -6,25 +6,25 @@
       <%= form_with model: @user do |f| %>
         <div class="pt-6">
           <%= f.label :name, t(".name"), class: "text-sm" %>
-          <%= f.text_field :name, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 focus:bg-opacity-50" %>
+          <%= f.text_field :name, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 focus:bg-opacity-50 rounded-none" %>
           <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
         </div>
 
         <div class="py-8">
           <%= f.label :email, t(".email"), class: "text-sm" %>
-          <%= f.text_field :email, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1" %>
+          <%= f.text_field :email, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none" %>
           <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
         </div>
 
         <div class="pb-8">
           <%= f.label :password, t(".password"), class: "text-sm" %>
-          <%= f.text_field :password, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1", id: "user_password" %>
+          <%= f.text_field :password, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none", id: "user_password" %>
           <%= render 'shared/error_message_for_field', object: f.object, attribute: :password %>
         </div>
 
         <div class="pb-2 md:mb-8">
           <%= f.label :password_confirmation, t(".password_confirmation"), class: "text-sm" %>
-          <%= f.text_field :password_confirmation, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1" %>
+          <%= f.text_field :password_confirmation, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none" %>
           <%= render 'shared/error_message_for_field', object: f.object, attribute: :password_confirmation %>
         </div>
 

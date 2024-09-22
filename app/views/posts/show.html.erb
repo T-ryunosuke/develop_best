@@ -1,10 +1,10 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="flex flex-col mx-auto mt-4 max-h-screen sm:min-h-screen sm:max-h-none w-full">
+<div class="flex flex-col mx-auto mt-2 sm:mt-4 max-h-screen sm:min-h-screen sm:max-h-none w-full">
   <div class="flex-1">
     <div class="flex justify-center w-full">
-      <div class="rounded-xl bg-base-100 w-4/5 sm:w-3/5 lg:w-1/2 shadow-xl outline outline-gray-100 p-4">
-        <div class="flex flex-col items-center pt-2 mt-2">
+      <div class="rounded-xl bg-base-100 w-11/12 sm:w-3/5 lg:w-1/2 shadow-xl outline outline-1 outline-black/50 p-2 sm:p-4">
+        <div class="flex flex-col items-center pt-4">
           <div class="flex-grow w-full px-4">
             <div class="text-end text-xs sm:text-sm text-gray-400">
               <%= @post.created_at.strftime("%Y/%m/%d") %>
@@ -37,12 +37,14 @@
               </div>
 
               <!-- スライダーのボタン -->
-              <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-l">
-                &#10094;
-              </button>
-              <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-r">
-                &#10095;
-              </button>
+              <% if @post.images.size > 1 %>
+                <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-l">
+                  &#10094;
+                </button>
+                <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-r">
+                  &#10095;
+                </button>
+              <% end %>
             </div>
 
 
