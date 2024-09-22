@@ -1,48 +1,52 @@
-<div class="rounded-md bg-base-100 w-3/4 md:w-3/5 lg:w-1/2 shadow-xl sm:outline outline-gray-100">
-  <div class="p-2 pt-4 flex flex-col items-center mt-2">
-    <div class="flex-grow w-full px-4">
-      <%= form_with model: post do |f| %>
-        <div class="form-control mb-6">
-          <%= f.label :title, class: "text-md" %>
-          <%= f.text_field :title, class: "border p-1 rounded-sm w-full" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :title %>
-        </div>
+<div class="container mx-auto my-2 sm:my-6">
+  <div class="flex justify-center w-full">
+    <div class="rounded-md bg-base-100 w-11/12 sm:w-4/5 md:w-3/4 lg:w-1/2 2xl:w-2/5 shadow-xl outline outline-1 outline-black/50">
+      <div class="px-6 sm:px-10 pt-6 sm:pt-10 flex flex-col items-center">
+        <div class="flex-grow w-full">
+          <%= form_with model: post do |f| %>
+            <div class="form-control mb-6">
+              <%= f.label :title, class: "text-md" %>
+              <%= f.text_field :title, class: "border p-1 rounded-sm w-full" %>
+              <%= render 'shared/error_message_for_field', object: f.object, attribute: :title %>
+            </div>
 
-        <div class="form-control mb-6">
-          <%= f.label :category_name, class: "text-md" %>
-          <%= f.text_field :category_name, class: "border p-1 rounded-sm w-full", value: @post.category_name || @post.category&.name %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :category %>
-        </div>
+            <div class="form-control mb-6">
+              <%= f.label :category_name, class: "text-md" %>
+              <%= f.text_field :category_name, class: "border p-1 rounded-sm w-full", value: @post.category_name || @post.category&.name %>
+              <%= render 'shared/error_message_for_field', object: f.object, attribute: :category %>
+            </div>
 
-        <div class="form-group mb-6">
-          <%= f.label "画像：", class: "text-md" %>
-          <label>
-            <span class="text-blue-400 text-sm font-thin bg-transparent py-1 px-2 cursor-pointer border border-blue-400 rounded hover:bg-gray-200 hover:text-gray-400 hover:border-transparent">ファイルを選択</span>
-            <%= f.file_field :images, multiple: true, include_hidden: false, class: 'hidden', id: 'post_images' %>
-          </label>
+            <div class="form-group mb-6">
+              <%= f.label "画像：", class: "text-md" %>
+              <label>
+                <span class="text-blue-400 text-sm font-thin bg-transparent py-1 px-2 cursor-pointer border border-blue-400 rounded hover:bg-gray-200 hover:text-gray-400 hover:border-transparent">ファイルを選択</span>
+                <%= f.file_field :images, multiple: true, include_hidden: false, class: 'hidden', id: 'post_images' %>
+              </label>
 
-          <div id="previews" class="flex flex-col items-center">
-            <% if @post.images.present? %>
-              <% @post.images.each do |image| %>
-                <%= image_tag(image.url, class: 'mt-3 preview-image max-h-52') %>
-              <% end %>
-            <% else %>
-              <%= image_tag('sample.jpg', class: 'mt-3 preview-image max-h-52') %>
-            <% end %>
-          </div>
-          <%= f.hidden_field :images_cache %>
-        </div>
+              <div id="previews" class="flex flex-col items-center">
+                <% if @post.images.present? %>
+                  <% @post.images.each do |image| %>
+                    <%= image_tag(image.url, class: 'mt-3 preview-image max-h-52') %>
+                  <% end %>
+                <% else %>
+                  <%= image_tag('sample.jpg', class: 'mt-3 preview-image max-h-52') %>
+                <% end %>
+              </div>
+              <%= f.hidden_field :images_cache %>
+            </div>
 
-        <div class="form-control mb-10 sm:mb-16">
-          <%= f.label :content, class: "text-md" %>
-          <%= f.text_area :content, class: 'border rounded-md p-2 h-24 w-full', placeholder: "内容" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :content %>
-        </div>
+            <div class="form-control mb-10 sm:mb-16">
+              <%= f.label :content, class: "text-md" %>
+              <%= f.text_area :content, class: 'border rounded-md p-2 h-24 w-full', placeholder: "内容" %>
+              <%= render 'shared/error_message_for_field', object: f.object, attribute: :content %>
+            </div>
 
-        <div class="text-center mb-4">
-          <%= f.submit t('helpers.submit.post'), class: "btn btn-sm bg-primary-content w-1/4 font-thin md:font-semibold" %>
+            <div class="text-center mb-6 sm:mb-10">
+              <%= f.submit t('helpers.submit.post'), class: "border border-slate-600 bg-slate-600 text-white w-1/4 font-thin cursor-pointer hover:text-black hover:bg-white hover:shadow-lg transition duration-200" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

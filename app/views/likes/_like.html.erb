@@ -1,13 +1,11 @@
 <turbo-frame id="liked_<%= post.id %>">
   <% if liker %>
     <%= button_to post_likes_path(post), method: :delete, data: { disable_with: '<i class="ri-heart-fill text-2xl text-red-400 hover:animate-pulse"></i>' }, class: "inline-flex items-center" do %>
-      <i class="ri-heart-fill text-2xl text-red-400 hover:animate-pulse"></i>
-      <span class="font-light text-sm text-gray-700 ml-1"><%= post.likes.count %></span>
+      <i class="ri-heart-fill text-2xl text-red-400 hover:animate-pulse"><span class="font-light text-sm text-gray-700"><%= post.likes.count %></span></i>
     <% end %>
   <% else %>
     <%= button_to post_likes_path(post), method: :post, data: { disable_with: '<i class="ri-heart-line text-2xl text-gray-600 hover:animate-pulse"></i>' }, class: "inline-flex items-center" do %>
-      <i class="ri-heart-line text-2xl text-gray-600 hover:animate-pulse"></i>
-      <span class="font-light text-sm text-gray-400 ml-1"><%= post.likes.count %></span>
+      <i class="ri-heart-line text-2xl text-gray-600 hover:animate-pulse"><span class="font-light text-sm text-gray-400"><%= post.likes.count %></span></i>
     <% end %>
   <% end %>
 </turbo-frame>
