@@ -26,7 +26,8 @@
           <% end %>
         </div>
 
-        <div class="flex justify-end">
+        <div class="flex justify-end pt-2">
+
           <% if current_user&.mine?(post) %>
             <i class="ri-heart-fill text-2xl text-gray-400 mr-auto"><span class="font-light text-sm text-gray-400"><%= post.likes.count %></span></i>
             <div class="flex space-x-1">
@@ -48,10 +49,11 @@
                 </div>
               </dialog>
             </div>
+
           <% else %>
-            <div class="pt-2">
-              <%= render "likes/like", post: post, liker: post.liked_by?(current_user) %>
-            </div>
+
+            <%= render "likes/like", post: post, liker: post.liked_by?(current_user) %>
+
           <% end %>
         </div>
       </div>

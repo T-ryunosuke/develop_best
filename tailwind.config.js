@@ -13,10 +13,6 @@ module.exports = {
       minWidth: {
         'screen': '100vw',
       },
-      backgroundImage: {
-        'sprite': "url('/assets/sprite.png')",
-        'sprite_reverse': "url('/assets/sprite_reverse.png')"
-      },
       height: {
         'vh-5': '5vh',
         'vh-10': '10vh',
@@ -60,12 +56,12 @@ module.exports = {
         },
         shadow_pop_br: {
           "0%": {
-              "box-shadow": "0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e",
+              "box-shadow": "0 0 #3e3e3e",
               transform: "translateX(0) translateY(0)",
           },
           to: {
-              "box-shadow": "1px 1px #3e3e3e, 2px 2px #3e3e3e, 3px 3px #3e3e3e",
-              transform: "translateX(-3px) translateY(-3px)",
+              "box-shadow": "2px 2px #3e3e3e",
+              transform: "translateX(-2px) translateY(-2px)",
           },
         },
         pulsate_fwd: {
@@ -82,7 +78,7 @@ module.exports = {
         quake: 'quake 0.6s linear',
         slide_in_left: "slide_in_left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
         shadow_pop_br: "shadow_pop_br 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both",
-        "pulsate_fwd": "pulsate_fwd 5s ease infinite both",
+        pulsate_fwd: "pulsate_fwd 5s ease infinite both",
       },
     },
   },
