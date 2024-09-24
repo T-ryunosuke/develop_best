@@ -69,11 +69,11 @@ document.addEventListener("turbo:load", function () {
     el.innerHTML = outputTexts;
   });
 
-  gsap.to('.overwrap', 5, {
+  gsap.to('.overWrap', 5, {
     ease: 'power4.out',
     width: 0,
     scrollTrigger: {
-      trigger: '.overwrap',
+      trigger: '.overWrap',
       scrub: true,
       start: 'top 80%',
       end: 'bottom 50%'

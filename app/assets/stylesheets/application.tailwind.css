@@ -69,8 +69,7 @@
 }
 
 .contentsList li:before{
-  @apply border border-black/50 hover:border-black w-full h-full absolute top-0 left-0 -skew-x-[30deg] transition-shadow duration-200 delay-300;
-  pointer-events: none;
+  @apply border border-black/50 hover:border-black w-full h-full absolute top-0 left-0 -skew-x-[30deg] transition-shadow duration-200 delay-300 pointer-events-none;
 }
 
 .contentsList li.show {
