@@ -37,7 +37,7 @@
 
             <div class="form-control mb-10 sm:mb-16">
               <%= f.label :content, class: "text-md" %>
-              <%= f.text_area :content, class: 'border rounded-md p-2 h-24 w-full', placeholder: "内容" %>
+              <%= f.text_area :content, class: 'border rounded-md p-2 h-24 w-full', placeholder: "文頭の「#」等でマークダウンとして記述できます。" %>
               <%= render 'shared/error_message_for_field', object: f.object, attribute: :content %>
             </div>
 

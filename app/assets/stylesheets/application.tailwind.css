@@ -121,3 +121,17 @@ th {
 .textarea a {
   @apply underline text-blue-400 hover:text-blue-500;
 }
+
+pre {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow-x: auto;
+  padding: 2px 4px;
+}
+
+pre code {
+  font-family: monospace, 'Courier New',
+    Courier;
+  color: #333;
+  line-height: 1;
+}
