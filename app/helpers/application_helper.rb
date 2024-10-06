@@ -36,7 +36,6 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: "best",
-      title: "best",
       reverse: true,
       charset: "utf-8",
       description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリ",

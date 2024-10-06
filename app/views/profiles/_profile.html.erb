@@ -32,10 +32,12 @@
                 <%= @user.name %>
               </div>
 
+              <% if current_user.id == @user.id %>
               <label><%= t("profiles.show.email") %></label>
               <div class='w-5/6 lg:w-4/6 ml-4 mb-3 border-b border-black/50 bg-transparent'>
                 <%= @user.email %>
               </div>
+              <% end %>
 
               <label><%= t("profiles.show.gender") %></label>
               <div class='w-5/6 lg:w-4/6 ml-4 mb-3 border-b border-black/50 bg-transparent'>
