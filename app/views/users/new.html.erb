@@ -1,37 +1,36 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto mt-0 md:mt-4" >
-  <div class="flex justify-center">
-    <div class="flex-grow max-w-64 md:max-w-md">
-      <%= form_with model: @user do |f| %>
-        <div class="pt-6">
-          <%= f.label :name, t(".name"), class: "text-sm" %>
-          <%= f.text_field :name, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 focus:bg-opacity-50 rounded-none" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
-        </div>
+<div class="container mx-auto max-w-lg mt-4 md:mt-8" >
+  <h2 class="flex justify-center">アカウント作成</h2>
+  <div class="group border border-black/50 bg-zinc-200 rounded-lg mt-8 mx-4 py-4 md:py-6 px-8 md:px-14">
+    <%= form_with model: @user do |f| %>
+      <div class="pt-6">
+        <%= f.label :name, t(".name"), class: "text-sm" %>
+        <%= f.text_field :name, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+        <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
+      </div>
 
-        <div class="py-8">
-          <%= f.label :email, t(".email"), class: "text-sm" %>
-          <%= f.text_field :email, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
-        </div>
+      <div class="py-8">
+        <%= f.label :email, t(".email"), class: "text-sm" %>
+        <%= f.text_field :email, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+        <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
+      </div>
 
-        <div class="pb-8">
-          <%= f.label :password, t(".password"), class: "text-sm" %>
-          <%= f.text_field :password, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none", id: "user_password" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :password %>
-        </div>
+      <div class="pb-8">
+        <%= f.label :password, t(".password"), class: "text-sm" %>
+        <%= f.text_field :password, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none", id: "user_password" %>
+        <%= render 'shared/error_message_for_field', object: f.object, attribute: :password %>
+      </div>
 
-        <div class="pb-2 md:mb-8">
-          <%= f.label :password_confirmation, t(".password_confirmation"), class: "text-sm" %>
-          <%= f.text_field :password_confirmation, class: "border-b border-black/50 bg-transparent outline-none focus:bg-white focus:border-white focus:shadow-md transition duration-500 w-full px-1 rounded-none" %>
-          <%= render 'shared/error_message_for_field', object: f.object, attribute: :password_confirmation %>
-        </div>
+      <div class="pb-2 md:mb-10">
+        <%= f.label :password_confirmation, t(".password_confirmation"), class: "text-sm" %>
+        <%= f.text_field :password_confirmation, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+        <%= render 'shared/error_message_for_field', object: f.object, attribute: :password_confirmation %>
+      </div>
 
-        <div class="text-center my-8">
-          <%= f.submit t('.submit'), class: "border border-gray-400 bg-transeparent text-gray-900 w-1/3 md:w-1/4 font-thin cursor-pointer hover:text-white hover:bg-gray-400 hover:shadow-lg transition duration-500" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="text-center my-6">
+        <%= f.submit t('.submit'), class: "w-20 border border-black/50 bg-transeparent text-gray-900 font-thin cursor-pointer hover:text-white hover:bg-black/50 hover:shadow-lg transition duration-500" %>
+      </div>
+    <% end %>
   </div>
 </div>

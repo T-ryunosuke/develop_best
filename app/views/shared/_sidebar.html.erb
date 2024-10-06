@@ -10,7 +10,7 @@
       </li>
 
       <li class="mb-2 sm:mb-4 hover:animate-bounce">
-        <%= link_to new_post_path do %>
+        <%= link_to new_post_path, data: { turbo: false } do %>
           <i class="ri-pencil-line"></i>
           <%= t("sidebar.new") %>
         <% end %>

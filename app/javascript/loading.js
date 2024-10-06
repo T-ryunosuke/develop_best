@@ -56,7 +56,7 @@ function removeLoading() {
 }
 
 async function execute() {
-  await delay(500);
+  await delay(2000);
   await fadeOutLoadText();
   await startFinishAnimation();
   await delay(100);

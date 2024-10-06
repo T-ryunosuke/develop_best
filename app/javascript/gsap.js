@@ -11,7 +11,6 @@ document.addEventListener("turbo:load", function () {
 
   if (!toUpObjects) return;
 
-
   for (let i = 0; i < objectNumber; i++) {
     const li = document.createElement('li')
     li.style.width = `${30 / objectNumber}%`
