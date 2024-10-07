@@ -2,7 +2,12 @@
 
   <button class="ml-4 cursor-pointer">
     <%= link_to root_path, data: { turbo_frame: "_top" } do %>
-      <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500" %>
+
+      <!-- 通常のロゴ画像 -->
+      <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 dark:hidden" %>
+      <!-- ダークモード用のロゴ画像 -->
+      <%= image_tag "logo-dark.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 hidden dark:block" %>
+
     <% end %>
   </button>
 
