@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # OAuth認証を開始するためのエンドポイント
+
+  # OAuthプロバイダーからのコールバックを受け取るためのエンドポイント
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
   get "images/ogp.png", to: "images#ogp", as: "images_ogp"
   get "relationships/followees"
   get "relationships/followers"

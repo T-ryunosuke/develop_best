@@ -19,6 +19,9 @@
         <%= f.submit t('.login'), class: "w-28 border border-black/50 bg-transeparent text-gray-900 font-thin cursor-pointer hover:text-white hover:bg-black/50 hover:shadow-lg transition duration-500" %>
       </div>
     <% end %>
+    <div class="flex justify-center">
+      <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+    </div>
   </div>
 
 
