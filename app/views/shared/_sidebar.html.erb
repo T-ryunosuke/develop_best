@@ -40,15 +40,15 @@
       <div class="sm:divider"></div>
     </ul>
   </div>
-  <dialog id="my_modal_11" class="modal">
-    <div class="modal-box">
-      <p class="text-center text-lg font-medium">ログアウトしますか？</p>
-      <div class="modal-action flex justify-between mx-8 sm:mx-20">
-        <form method="dialog">
-          <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
-        </form>
-        <%= link_to "ログアウト", logout_path, class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
-      </div>
-    </div>
-  </dialog>
 </div>
+<dialog id="my_modal_11" class="modal">
+  <div class="modal-box">
+    <p class="text-center text-lg font-medium">ログアウトしますか？</p>
+    <div class="modal-action flex justify-between mx-8 sm:mx-20">
+      <form method="dialog">
+        <button class="btn btn-outline outline-none font-thin text-xs md:text-base">キャンセル</button>
+      </form>
+      <%= link_to "ログアウト", logout_path, class: "btn btn-outline font-thin text-xs text-red-400 md:text-base", data: { turbo_method: :delete } %>
+    </div>
+  </div>
+</dialog>
