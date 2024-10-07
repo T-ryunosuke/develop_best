@@ -25,6 +25,7 @@ ja:
       login: ログイン
       email: メールアドレス
       password: パスワード（4文字以上）
+      google: oogleログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
     create:
