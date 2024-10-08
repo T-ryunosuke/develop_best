@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followee_id", dependent: :destroy
   has_many :followees, through: :relationships, source: :followee
   has_many :followers, through: :reverse_of_relationships, source: :follower
-  has_many :authentications, :dependent => :destroy
+  has_many :authentications, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 25 }
   validates :email, uniqueness: true, presence: true
