@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:external]
+Rails.application.config.sorcery.submodules = [ :external ]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -82,7 +82,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   # config.external_providers =
   #
-  #利用する外部サービスのプロバイダーを指定
+  # 利用する外部サービスのプロバイダーを指定
   config.external_providers = %i[google]
   #
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -167,16 +167,16 @@ Rails.application.config.sorcery.configure do |config|
   # config.google.user_info_mapping = {:email => "email", :username => "name"}
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
-  #credentials.ymlから情報を取得
+  # credentials.ymlから情報を取得
   config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
-  #API設定で承認済みのリダイレクトURIとして登録したurlを設定
+  # API設定で承認済みのリダイレクトURIとして登録したurlを設定
   if Rails.env.test?
-    config.google.callback_url = 'http://localhost:3000/test_callback'
+    config.google.callback_url = "http://localhost:3000/test_callback"
   else
     config.google.callback_url = Settings.sorcery[:google_callback_url]
   end
-  #外部サービスから取得したユーザー情報をUserモデルの指定した属性にマッピング
+  # 外部サービスから取得したユーザー情報をUserモデルの指定した属性にマッピング
   config.google.user_info_mapping = { email: "email", name: "name" }
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
@@ -559,7 +559,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `nil`
     #
     # user.authentications_class =
-    #外部サービスとの認証情報を保存するモデルを指定
+    # 外部サービスとの認証情報を保存するモデルを指定
     user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.

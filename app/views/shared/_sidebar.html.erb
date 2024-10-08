@@ -2,35 +2,35 @@
   <div class="w-full h-vh-100 mt-10">
     <ul class="menu text-xl sm:text-2xl font-thin -ml-1 sm:m-6">
 
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
+      <li class="mb-2 sm:mb-4">
         <%= link_to posts_path do %>
           <i class="ri-star-line"></i>
           <%= t("sidebar.list") %>
         <% end %>
       </li>
 
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
+      <li class="mb-2 sm:mb-4">
         <%= link_to new_post_path, data: { turbo: false } do %>
           <i class="ri-pencil-line"></i>
           <%= t("sidebar.new") %>
         <% end %>
       </li>
 
-      <li class="mb-2 sm:mb-4 hover:animate-bounce">
+      <li class="mb-2 sm:mb-4">
         <%= link_to liked_posts_user_path(current_user) do %>
           <i class="ri-heart-line"></i>
           <%= t("sidebar.favorite") %>
         <% end %>
       </li>
 
-      <li class="sm:hidden mb-2 sm:mb-4 hover:animate-bounce">
+      <li class="sm:hidden mb-2 sm:mb-4">
         <%= link_to profile_path do %>
           <i class="ri-id-card-fill"></i>
           <%= t("sidebar.profile") %>
         <% end %>
       </li>
 
-      <li class="flex mb-2 sm:mb-4 hover:animate-bounce">
+      <li class="flex mb-2 sm:mb-4">
         <div class="font-thin"  onclick="my_modal_11.showModal()">
           <i class="ri-logout-box-r-line"></i>
           <span><%= t("sidebar.logout") %></span>
