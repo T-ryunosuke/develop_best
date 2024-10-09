@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only: %i[new create]
   resource :profile, only: %i[show edit update]
+  resources :notifications, only: :index
   get "login" => "user_sessions#new"
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy"

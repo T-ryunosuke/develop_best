@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
     @comment.save
+    @post.create_notification_comment!(current_user, @comment.id)
   end
 
   def destroy

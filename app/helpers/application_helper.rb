@@ -58,3 +58,4 @@ module ApplicationHelper
     }
   end
 end
+

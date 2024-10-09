@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:query].present?
-      @users = User.ransack(name_eq: params[:query]).result.order(created_at: :desc).page(params[:page]).per(10)
+      @users = User.ransack(name_eq: params[:query]).result.order(created_at: :desc).page(params[:page]).per(12)
     else
       @users = @u.result.order(created_at: :desc).page(params[:page]).per(10)
     end

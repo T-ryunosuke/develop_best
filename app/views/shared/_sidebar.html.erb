@@ -4,7 +4,7 @@
 
       <li class="mb-2 sm:mb-4">
         <%= link_to posts_path do %>
-          <i class="ri-star-line"></i>
+          <i class="ri-gallery-view-2"></i>
           <%= t("sidebar.list") %>
         <% end %>
       </li>
@@ -23,6 +23,17 @@
         <% end %>
       </li>
 
+      <li class="mb-2 sm:mb-4">
+        <%= link_to notifications_path do %>
+          <i class="ri-notification-line relative">
+          <% if unchecked_notifications.any? %>
+            <i class="ri-circle-fill absolute top-0 right-0 text-xs text-yellow-500 motion-safe:animate-ping"></i>
+          <% end %>
+          </i>
+          <%= t("sidebar.notification") %>
+        <% end %>
+      </li>
+
       <li class="sm:hidden mb-2 sm:mb-4">
         <%= link_to profile_path do %>
           <i class="ri-id-card-fill"></i>
@@ -31,7 +42,7 @@
       </li>
 
       <li class="flex mb-2 sm:mb-4">
-        <div class="font-thin"  onclick="my_modal_11.showModal()">
+        <div class="font-thin"  onclick="my_modal_0.showModal()">
           <i class="ri-logout-box-r-line"></i>
           <span><%= t("sidebar.logout") %></span>
         </div>
@@ -41,7 +52,7 @@
     </ul>
   </div>
 </div>
-<dialog id="my_modal_11" class="modal">
+<dialog id="my_modal_0" class="modal">
   <div class="modal-box">
     <p class="text-center text-lg font-medium">ログアウトしますか？</p>
     <div class="modal-action flex justify-between mx-8 sm:mx-20">
