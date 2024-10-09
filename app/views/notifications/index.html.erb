@@ -1,0 +1,16 @@
+<% content_for(:title, t('.title')) %>
+
+<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+<div class="container max-w-[800px] mx-auto mt-4">
+  <h1 class="sm:mt-4 ml-10 sm:ml-18 pl-3 font-medium mb-8 border-l-4 border-gray-400"><%= t('.title') %></h1>
+  <div class="w-3/4 md:w-full max-w-[600px] mx-auto space-y-4">
+    <% if notifications.present? %>
+      <%= render notifications %>
+    <% else %>
+      <p>通知はありません</p>
+    <% end %>
+  </div>
+  <div class="mb-10 flex justify-center">
+    <%= paginate notifications %>
+  </div>
+</div>

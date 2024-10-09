@@ -98,6 +98,9 @@ ja:
     new:
       title: カテゴリー登録
       submit: 登録
+  notifications:
+    index:
+      title: 通知
   header:
     login: ログイン
     logout: ログアウト
@@ -115,6 +118,7 @@ ja:
     new: Post
     favorite: Favorite
     profile: Profile
+    notification: Notice
     logout: Logout
   pagination:
     first: 最初

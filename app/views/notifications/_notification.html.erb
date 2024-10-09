@@ -1,0 +1,39 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div class="font-noto">
+  <div class="text-end text-xs text-gray-400">
+    <%= time_ago_in_words(notification.created_at) %>前
+  </div>
+
+  <div class="text-sm sm:text-base">
+
+    <span>
+      <%= link_to user_path(visitor), class: "text-blue-500" do %>
+        <%= visitor.name %>
+      <% end %>
+      さんが
+
+      <% case notification.action %>
+      <% when 'follow' %>
+        あなたを <i class="ri-shake-hands-line"></i>フォロー しました
+      <% when 'like' %>
+        <%= link_to 'あなたの投稿', notification.post, class: "text-blue-500" %>
+        に <i class="ri-heart-line"></i>いいね しました
+      <% when 'comment' %>
+        <% if notification.post.user_id == visited.id %>
+          <%= link_to "あなたの投稿", notification.post, class: "text-blue-500" %>
+        <% else %>
+          <span>
+            <%= link_to post_path(notification.post) do %>
+              <%= notification.post.user.name + 'さんの投稿' %>
+            <% end %>
+          </span>
+        <% end %>
+        に <i class="ri-chat-1-line"></i>コメント しました
+      <% end %>
+    </span>
+  </div>
+
+  <hr>
+</div>

@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     # 連打ばか対策
     @post.with_lock do
       current_user.likes.create!(post_id: @post.id) unless current_user.likes.exists?(post_id: @post.id)
+      @post.create_notification_like!(current_user)  # 通知を作成
     end
 
     render turbo_stream: turbo_stream.replace(
