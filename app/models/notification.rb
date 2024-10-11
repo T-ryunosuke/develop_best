@@ -7,4 +7,6 @@ class Notification < ApplicationRecord
   belongs_to :visitor, class_name: 'User'
   # 通知を送られたユーザー
   belongs_to :visited, class_name: 'User'
+
+  validates :action, presence: true
 end

@@ -2,7 +2,6 @@ class LikesController < ApplicationController
   before_action :set_post
 
   def create
-    # 連打ばか対策
     @post.with_lock do
       current_user.likes.create!(post_id: @post.id) unless current_user.likes.exists?(post_id: @post.id)
       @post.create_notification_like!(current_user)  # 通知を作成
@@ -16,7 +15,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    # 連打ばか対策
     @post.with_lock do
       like = current_user.likes.find_by!(post_id: @post.id)
       like.destroy!
