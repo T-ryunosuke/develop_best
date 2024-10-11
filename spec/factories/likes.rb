@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :like do
-    user { nil }
-    post { nil }
+    association :user  # いいねをするユーザー
+    association :post  # いいねが紐づく投稿
   end
 end
