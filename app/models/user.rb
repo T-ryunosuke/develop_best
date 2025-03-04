@@ -13,9 +13,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :authentications, dependent: :destroy
   # active_notifications：自分からの通知
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   # passive_notifications：相手からの通知
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 25 }
   validates :email, uniqueness: true, presence: true
@@ -47,11 +47,11 @@ class User < ApplicationRecord
 
 
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where([ "visitor_id = ? and visited_id = ? and action = ? ", current_user.id, id, "follow" ])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
-        action: 'follow'
+        action: "follow"
       )
       notification.save if notification.valid?
     end

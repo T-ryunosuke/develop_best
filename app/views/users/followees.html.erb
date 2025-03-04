@@ -4,7 +4,7 @@
   <h1 class="ml-4 md:ml-6 sm:mt-4 mb-10 pl-3 border-l-4 border-gray-400"><%= t('.title') %></h1>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-4">
     <% if @users.present? %>
-      <%= render @users %>
+      <%= render partial: "user", collection: @users, as: :user %>
     <% else %>
       <p class="mb-3">他のユーザーがいません</p>
     <% end %>
