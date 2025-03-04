@@ -23,6 +23,7 @@ gem "enum_help"
 gem "fog-aws", "~> 3.25"
 gem "meta-tags", require: "meta_tags"
 gem "mini_magick"
+gem "dotenv-rails"
 gem "redcarpet"
 gem "config"
 
@@ -34,7 +35,6 @@ group :development, :test do
   # 導入
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "dotenv-rails"
 end
 
 group :development do
