@@ -10,7 +10,7 @@
   <div class="container mx-auto mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-8 sm:mx-4">
       <% if @posts.present? %>
-        <%= render @posts %>
+        <%= render partial: "post", collection: @posts, as: :post %>
       <% else %>
         <p class="mb-3 mt-4">投稿がありません</p>
       <% end %>
