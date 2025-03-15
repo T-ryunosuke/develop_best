@@ -1,4 +1,4 @@
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t(".title"), description: "プロフィールを更新して、フォロワーに自分をもっと知ってもらいましょう！" %>
 
 <div class="container mx-auto mt-2 sm:mt-4 font-noto">
   <div class="flex justify-center">
@@ -8,53 +8,53 @@
       </h1>
       <div class="flex justify-center">
         <%= form_with model: @user, url: profile_path, class: "w-11/12" do |f| %>
-          <div class="flex flex-row space-x-4">
-            <div class="basis-1/4 flex flex-col items-center">
-              <%= f.label :avatar, class: 'sr-only' %>
-              <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3', id: 'preview') %>
+        <div class="flex flex-row space-x-4">
+          <div class="basis-1/4 flex flex-col items-center">
+            <%= f.label :avatar, class: 'sr-only' %>
+            <%= image_tag(@user.avatar.url, class: 'rounded-full size-16 sm:size-20 my-3', id: 'preview') %>
 
-              <label>
-                <span class="text-sm cursor-pointer hover:text-blue-400">画像選択</span>
-                <%= f.file_field :avatar, class: 'hidden', id: 'avatar' %>
-              </label>
-              <%= f.hidden_field :avatar_cache %>
+            <label>
+              <span class="text-sm cursor-pointer hover:text-blue-400">画像選択</span>
+              <%= f.file_field :avatar, class: 'hidden', id: 'avatar' %>
+            </label>
+            <%= f.hidden_field :avatar_cache %>
+          </div>
+
+          <div class="basis-3/4">
+            <div class="flex flex-col">
+              <%= f.label :name, t(".name") %>
+              <span class="my-1 ml-4 pb-4">
+                <%= f.text_field :name, class: 'w-5/6 border-b border-black/50 bg-transparent outline-none px-1' %>
+                <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
+              </span>
+              <%= f.label :email, t(".email") %>
+              <span class="my-1 ml-4 pb-4">
+                <%= f.email_field :email, class: 'w-5/6 border-b border-black/50 bg-transparent outline-none px-1' %>
+                <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
+              </span>
+
+              <%= f.label :gender, t(".gender") %>
+              <span class="ml-4 mb-4 text-md">
+                <%= f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]}, { include_blank: false }, class: 'bg-transparent p-1 border-b border-black/50 w-30' %>
+              </span>
+
+              <%= f.label :age, t(".age") %>
+              <span class="ml-4 mb-8 text-md">
+                <%= f.select :age, User.ages_i18n.keys.map {|k| [User.ages_i18n[k], k]}, { include_blank: false }, class: 'bg-gray-100 p-1 border-b border-black/50 w-30' %>
+              </span>
+
+              <%= f.label :profile, t(".profile") %>
+              <span class="mt-1 mb-3">
+                <%= f.text_area :profile, class: 'bg-transparent w-5/6 border border-black/50 rounded-md p-2 ml-4 mb-4' %>
+              </span>
+              <%= render 'shared/error_message_for_field', object: f.object, attribute: :profile %>
             </div>
 
-            <div class="basis-3/4">
-              <div class="flex flex-col">
-                <%= f.label :name, t(".name") %>
-                <span class="my-1 ml-4 pb-4">
-                  <%= f.text_field :name, class: 'w-5/6 border-b border-black/50 bg-transparent outline-none px-1' %>
-                  <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
-                </span>
-                <%= f.label :email, t(".email") %>
-                <span class="my-1 ml-4 pb-4">
-                  <%= f.email_field :email, class: 'w-5/6 border-b border-black/50 bg-transparent outline-none px-1' %>
-                  <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
-                </span>
-
-                <%= f.label :gender, t(".gender") %>
-                <span class="ml-4 mb-4 text-md">
-                  <%= f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]}, { include_blank: false }, class: 'bg-transparent p-1 border-b border-black/50 w-30' %>
-                </span>
-
-                <%= f.label :age, t(".age") %>
-                <span class="ml-4 mb-8 text-md">
-                  <%= f.select :age, User.ages_i18n.keys.map {|k| [User.ages_i18n[k], k]}, { include_blank: false }, class: 'bg-gray-100 p-1 border-b border-black/50 w-30' %>
-                </span>
-
-                <%= f.label :profile, t(".profile") %>
-                <span class="mt-1 mb-3">
-                  <%= f.text_area :profile, class: 'bg-transparent w-5/6 border border-black/50 rounded-md p-2 ml-4 mb-4' %>
-                </span>
-                <%= render 'shared/error_message_for_field', object: f.object, attribute: :profile %>
-              </div>
-
-              <div class="text-end w-5/6">
-                <%= f.submit t(".submit"), class: "w-1/5 md:w-1/6 mb-10 rounded-full border border-slate-600 bg-slate-700 text-white font-thin cursor-pointer hover:text-black hover:bg-white hover:shadow-md transition duration-200" %>
-              </div>
+            <div class="text-end w-5/6">
+              <%= f.submit t(".submit"), class: "w-1/5 md:w-1/6 mb-10 rounded-full border border-slate-600 bg-slate-700 text-white font-thin cursor-pointer hover:text-black hover:bg-white hover:shadow-md transition duration-200" %>
             </div>
           </div>
+        </div>
         <% end %>
       </div>
     </div>

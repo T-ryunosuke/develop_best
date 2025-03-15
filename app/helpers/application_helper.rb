@@ -1,10 +1,4 @@
 module ApplicationHelper
-  # 三項演算子を使用(ifの簡略化)
-  def page_title(title = "")
-    base_title = "best"
-    title.present? ? "#{title} | #{base_title}" : base_title
-  end
-
   def markdown(text)
     # レンダリングのオプションを設定する
     render_options = {
@@ -35,7 +29,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: "Best",
-      title: "Best Of Everything",
+      title: "Best of Everything",
       reverse: true,
       charset: "utf-8",
       description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリ",
@@ -43,8 +37,8 @@ module ApplicationHelper
       canonical: request.original_url,
       og: {
         site_name: "Best",
-        title: "Best Of Everything",
-        description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリ",
+        title: "Best of Everything",
+        description: "あなたがbestと感じた「もの」「場所」「体験」を投稿するSNS型のレビューアプリです。",
         type: "website",
         url: request.original_url,
         image: image_url("defaults.png"),

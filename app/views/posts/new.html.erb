@@ -1,4 +1,4 @@
 <meta name="turbo-cache-control" content="no-cache">
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t(".title"), description: "新しい投稿を作成して、あなたのBestを共有してください！" %>
 
 <%= render 'form', post: @post %>

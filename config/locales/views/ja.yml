@@ -74,7 +74,7 @@ ja:
       failure: プロフィールを更新できませんでした
   posts:
     index:
-      title: 投稿一覧
+      title: 全投稿一覧
     new:
       title: 投稿作成
     create:
@@ -84,7 +84,7 @@ ja:
       title: 投稿詳細
       edit: 編集
     follow:
-      title: フォローしている投稿
+      title: フォローユーザーの投稿
     edit:
       title: 投稿編集
     update:
