@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html class="bg-gray-100 h-scroll scroll-smooth">
-  <head>
-    <title><%= page_title(yield(:title)) %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= display_meta_tags(default_meta_tags) %>
-    <%= favicon_link_tag('favicon.ico') %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= display_meta_tags(default_meta_tags) %>
+  <link rel="manifest" href="/manifest.json">
+  <!-- ファビコン設定 -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- PWAアイコン設定 -->
+  <link rel="apple-touch-icon" href="/icon-x192-for-pwa.png">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP5CNQ3MCK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 
-      gtag('config', 'G-DP5CNQ3MCK');
-    </script>
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP5CNQ3MCK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-DP5CNQ3MCK');
+  </script>
+</head>
 
 
-  <body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-    <header class="fixed top-0 left-0 w-full z-50">
-      <% if logged_in? %>
-        <%= render "shared/header" %>
-      <% else %>
-        <%= render "shared/before_login_header" %>
-      <% end %>
-      <%= render "shared/flash_message" %>
-    </header>
-
+  <header class="fixed top-0 left-0 w-full z-50">
     <% if logged_in? %>
-      <aside class="z-40">
-        <%= render "shared/sidebar" %>
-      </aside>
+    <%= render "shared/header" %>
+    <% else %>
+    <%= render "shared/before_login_header" %>
     <% end %>
+    <%= render "shared/flash_message" %>
+  </header>
 
-    <main class="flex flex-1 mt-20 h-screen">
-      <%= yield %>
-    </main>
+  <% if logged_in? %>
+  <aside class="z-40">
+    <%= render "shared/sidebar" %>
+  </aside>
+  <% end %>
 
-    <footer class="w-full z-50 hidden sm:block">
-      <%= render "shared/footer" %>
-    </footer>
+  <main class="flex flex-1 mt-20 h-screen">
+    <%= yield %>
+  </main>
+
+  <footer class="w-full z-50 hidden sm:block">
+    <%= render "shared/footer" %>
+  </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
-    <script>
-      $('#menu-toggle').click(function() {
-        $('#side-menu').toggleClass('translate-x-0 -translate-x-full');
-        $('#menu-icon').toggleClass('hidden');
-        $('#close-icon').toggleClass('hidden');
-      });
-    </script>
+  <script>
+    $('#menu-toggle').click(function() {
+      $('#side-menu').toggleClass('translate-x-0 -translate-x-full');
+      $('#menu-icon').toggleClass('hidden');
+      $('#close-icon').toggleClass('hidden');
+    });
+  </script>
 
-  </body>
+</body>
+
 </html>

@@ -1,4 +1,4 @@
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t(".title"), description: "投稿の詳細を確認し、内容やコメントをチェックできます。" %>
 
 <div class="flex flex-col mx-auto mt-2 sm:mt-4 max-h-screen sm:min-h-screen sm:max-h-none w-full">
   <div class="flex-1">
@@ -22,28 +22,28 @@
             <div class="relative">
               <div class="flex items-center w-5/6 mx-auto snap-x overflow-x-scroll border border-black/50 mb-6 bg-black rounded-sm" id="image-gallery">
                 <% if @post.images.present? %>
-                  <% @post.images.each do |image| %>
-                    <div class="min-w-full snap-center">
-                      <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
-                        <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer mx-auto">
-                      </a>
-                    </div>
-                  <% end %>
+                <% @post.images.each do |image| %>
+                <div class="min-w-full snap-center">
+                  <a href="<%= image.url %>" data-lightbox="gallery" data-title="Post Image">
+                    <img src="<%= image.url %>" alt="Post Image" class="cursor-pointer mx-auto">
+                  </a>
+                </div>
+                <% end %>
                 <% else %>
-                  <div class="w-full">
-                    <%= image_tag('sample.jpg') %>
-                  </div>
+                <div class="w-full">
+                  <%= image_tag('sample.jpg') %>
+                </div>
                 <% end %>
               </div>
 
               <!-- スライダーのボタン -->
               <% if @post.images.size > 1 %>
-                <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-l">
-                  &#10094;
-                </button>
-                <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-r">
-                  &#10095;
-                </button>
+              <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-l">
+                &#10094;
+              </button>
+              <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1 rounded-r">
+                &#10095;
+              </button>
               <% end %>
             </div>
 
@@ -58,14 +58,14 @@
           <% prepare_meta_tags @post %>
           <% twitter_share_url = "https://twitter.com/share?url= #{CGI.escape(post_url(@post))}" %>
           <%= link_to twitter_share_url, target: '_blank', title: "Xでシェア" do %>
-            <i class="ri-twitter-x-line text-2xl text-black/50 pr-2 hover:text-black"></i>
+          <i class="ri-twitter-x-line text-2xl text-black/50 pr-2 hover:text-black"></i>
           <% end %>
 
           <% if current_user&.mine?(@post) %>
           <div class="flex space-x-1">
 
             <%= link_to edit_post_path(@post), title: "編集" do %>
-              <i class="ri-edit-box-line text-2xl text-blue-500"></i>
+            <i class="ri-edit-box-line text-2xl text-blue-500"></i>
             <% end %>
 
             <div class="hover:animate-quake">

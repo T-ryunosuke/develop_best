@@ -1,4 +1,4 @@
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t(".title"), description: "あなたがフォローしているユーザーの投稿一覧を確認できます。" %>
 
 <div class="flex flex-col w-screen -mt-8 sm:-mt-2">
   <div class="bg-base-300">
@@ -10,9 +10,9 @@
   <div class="container mx-auto mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-8 sm:mx-4">
       <% if @posts.present? %>
-        <%= render partial: "post", collection: @posts, as: :post %>
+      <%= render partial: "post", collection: @posts, as: :post %>
       <% else %>
-        <p class="mb-3 mt-4">投稿がありません</p>
+      <p class="ml-10 my-3">投稿がありません</p>
       <% end %>
     </div>
     <div class="mb-10 flex justify-center">

@@ -1,15 +1,15 @@
-<% content_for(:title, t('.title')) %>
+<% set_meta_tags title: t(".title"), description: "あなたがいいねをした投稿を表示します。" %>
 
 <div class="container mx-auto mt-4">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mx-2 sm:mx-4">
-      <% if @posts.present? %>
-        <%= render partial: "posts/post", collection: @posts, as: :post %>
-      <% else %>
-        <p class="mb-3">ハートがありません</p>
-      <% end %>
-    </div>
+    <% if @posts.present? %>
+      <%= render partial: "posts/post", collection: @posts, as: :post %>
+    <% else %>
+      <p class="mb-3">いいねをしましょう！</p>
+    <% end %>
   </div>
-  <div class="mb-10 flex justify-center">
-    <%= paginate @posts %>
-  </div>
+</div>
+<div class="mb-10 flex justify-center">
+  <%= paginate @posts %>
+</div>
 </div>

@@ -4,11 +4,11 @@ class PostsController < ApplicationController
 
   def index
     if params[:query].present?
-      @posts = Post.ransack(title_or_content_cont: params[:query]).result.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
+      @posts = Post.ransack(title_or_content_cont: params[:query]).result.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
     elsif @category
-      @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(9)
+      @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(12)
     else
-      @posts = @p.result.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
+      @posts = @p.result.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 
@@ -89,7 +89,7 @@ class PostsController < ApplicationController
                   },
                   twitter: {
                     card: "summary_large_image",
-                    site: "@dog_kira1215",
+                    site: "@ryunocode",
                     image: image_url
                   }
   end
