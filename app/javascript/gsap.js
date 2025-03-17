@@ -18,7 +18,8 @@ document.addEventListener("turbo:load", function () {
     toUpObjects.appendChild(li)
   };
 
-  gsap.to('.toUpObjects li', .8, {
+  gsap.to('.toUpObjects li', {
+    duration: 0.8,
     y: -(window.innerHeight * 1.5),
     ease: 'power3.in',
     stagger: {
@@ -35,11 +36,11 @@ document.addEventListener("turbo:load", function () {
   });
 
 
-
   const sections = document.querySelectorAll('section');
   sections.forEach(el => {
 
-    gsap.from(el, .5, {
+    gsap.from(el, {
+      duration: 0.5,
       opacity: 0,
       y: 20,
       scale: 0.8,
@@ -47,16 +48,13 @@ document.addEventListener("turbo:load", function () {
       scrollTrigger: {
         trigger: el,
         scrub: true,
-        // 要素の指定部分 と ブラウザの指定部分が重なったときにアニメーションを開始するという設定
+        // 要素の指定部分 と ブラウザの指定部分 が重なったときにアニメーションを開始するという設定
         start: 'top 80%',
-        // 要素の指定部分 と ブラウザの指定部分が重なったときにアニメーションを終了するという設定
-        // %指定も可能
+        // 要素の指定部分 と ブラウザの指定部分 が重なったときにアニメーションを終了するという設定
         //end: '50% 50%',
       }
     })
   });
-
-
 
 
   const subheadingElement = document.querySelectorAll('.subheading');
@@ -68,7 +66,8 @@ document.addEventListener("turbo:load", function () {
     el.innerHTML = outputTexts;
   });
 
-  gsap.to('.overWrap', 5, {
+  gsap.to('.overWrap', {
+    duration: 5,
     ease: 'power4.out',
     width: 0,
     scrollTrigger: {
@@ -79,7 +78,7 @@ document.addEventListener("turbo:load", function () {
     }
   });
 
-
+  // 上に消える演出
   gsap.timeline({
     scrollTrigger: {
       trigger: '.h1-box',
@@ -88,7 +87,8 @@ document.addEventListener("turbo:load", function () {
       scrub: 2
     }
   })
-  .to('.h1-box h1 span', 3, {
+  .to('.h1-box h1 span', {
+    duration: 3,
     opacity: 0,
     ease: 'power3.in',
     scaleX: .4,
@@ -98,14 +98,17 @@ document.addEventListener("turbo:load", function () {
       from: 'random'
     }
   })
-  .to('.h1-box', 2, {
+  .to('.h1-box', {
+    duration: 2,
     ease: 'power2.out',
     opacity: 0.8
   });
 
-  gsap.from('.contentsList li', .5, {
+  // 左から右にフェードインさせるアニメーション
+  gsap.from('.contentsList li', {
+    duration: 0.5,
     opacity: 0,
-    x: -15,
+    x: -15,  // 初期位置を左（-15px）にずらす
     ease: 'power4.out',
     scrollTrigger: {
       trigger: '.contentsList',

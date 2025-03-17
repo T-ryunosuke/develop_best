@@ -2,7 +2,6 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 function fadeOutLoadText() {
   return new Promise((resolve) => {
     window.scrollTo(0, 0);
@@ -33,8 +32,9 @@ function startFinishAnimation() {
 function startEndAnimation() {
   return new Promise((resolve) => {
     const endLoadingElement = document.getElementById("endLoading");
-    if (endLoadingElement) {
-      document.getElementById("loadBox").classList.add('fadeout');
+    const loadBoxElement = document.getElementById("loadBox");
+    if (endLoadingElement && loadBoxElement) {
+      loadBoxElement.classList.add('fadeout');
       endLoadingElement.classList.add('action');
       endLoadingElement.addEventListener('animationend', function onAnimationEnd() {
         endLoadingElement.removeEventListener('animationend', onAnimationEnd);
@@ -43,7 +43,6 @@ function startEndAnimation() {
     }
   });
 }
-
 
 function removeLoading() {
   return new Promise((resolve) => {
@@ -65,9 +64,8 @@ async function execute() {
   await removeLoading();
 }
 
-
 document.addEventListener("turbo:load", function () {
   if (document.getElementById("endLoading")) {
-    execute();
+    execute().catch(error => console.error("An error occurred: ", error));
   }
 });

@@ -1,35 +1,35 @@
 <% set_meta_tags title: t(".title"), description: "新しいアカウントを作成して、サービスを利用しましょう。" %>
 
 <div class="container mx-auto max-w-lg my-4 md:my-8">
-  <h2 class="flex justify-center">アカウント作成</h2>
-  <div class="group border border-black/50 bg-zinc-200 rounded-lg mt-8 mx-4 py-4 md:py-6 px-8 md:px-14">
+  <h2 class="flex justify-center font-noto font-thin text-3xl">アカウント作成</h2>
+  <div class="group border border-gray-400 bg-zinc-200 rounded-lg mt-8 mx-4 py-4 md:py-6 px-8 md:px-14">
     <%= form_with model: @user do |f| %>
     <div class="pt-6">
-      <%= f.label :name, t(".name"), class: "text-sm" %>
-      <%= f.text_field :name, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+      <%= f.label :name, t(".name"), class: "font-noto font-light text-sm" %>
+      <%= f.text_field :name, class: "w-full pl-1 border-b border-black/50 bg-transparent outline-none rounded-none" %>
       <%= render 'shared/error_message_for_field', object: f.object, attribute: :name %>
     </div>
 
     <div class="py-8">
-      <%= f.label :email, t(".email"), class: "text-sm" %>
-      <%= f.text_field :email, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+      <%= f.label :email, t(".email"), class: "font-noto font-light text-sm" %>
+      <%= f.text_field :email, class: "w-full pl-1 border-b border-black/50 bg-transparent outline-none rounded-none" %>
       <%= render 'shared/error_message_for_field', object: f.object, attribute: :email %>
     </div>
 
     <div class="pb-8">
-      <%= f.label :password, t(".password"), class: "text-sm" %>
-      <%= f.text_field :password, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none", id: "user_password" %>
+      <%= f.label :password, t(".password"), class: "font-noto font-light text-sm" %>
+      <%= f.text_field :password, class: "w-full pl-1 border-b border-black/50 bg-transparent outline-none rounded-none", id: "user_password" %>
       <%= render 'shared/error_message_for_field', object: f.object, attribute: :password %>
     </div>
 
     <div class="pb-2 md:mb-10">
-      <%= f.label :password_confirmation, t(".password_confirmation"), class: "text-sm" %>
-      <%= f.text_field :password_confirmation, class: "w-full border-b border-black/50 bg-transparent outline-none rounded-none" %>
+      <%= f.label :password_confirmation, t(".password_confirmation"), class: "font-noto font-light text-sm" %>
+      <%= f.text_field :password_confirmation, class: "w-full pl-1 border-b border-black/50 bg-transparent outline-none rounded-none" %>
       <%= render 'shared/error_message_for_field', object: f.object, attribute: :password_confirmation %>
     </div>
 
     <div class="text-center my-6">
-      <%= f.submit t('.submit'), class: "w-20 border border-black/50 bg-transeparent text-gray-900 font-thin cursor-pointer hover:text-white hover:bg-black/50 hover:shadow-lg transition duration-500" %>
+      <%= f.submit t('.submit'), class: "w-20 border border-black/50 rounded bg-transeparent text-gray-900 font-noto font-light cursor-pointer hover:text-white hover:bg-black/50 hover:shadow-lg transition duration-200" %>
     </div>
     <% end %>
   </div>
