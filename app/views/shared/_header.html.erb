@@ -1,4 +1,4 @@
-<div class="sm:navbar bg-base-300 sticky z-50 flex items-center justify-between">
+<div class="h-16 sm:navbar bg-base-200 sticky z-50 flex items-center justify-between">
   <!-- ハンバーガーメニューのボタン -->
   <button id="menu-toggle" class="btn btn-ghost ">
     <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -10,25 +10,27 @@
   </button>
 
   <%= link_to root_path, class: "sm:ml-4", data: { turbo: false } do %>
-    <!-- 通常のロゴ画像 -->
-    <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 dark:hidden" %>
-    <!-- ダークモード用のロゴ画像 -->
-    <%= image_tag "logo-dark.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 hidden dark:block" %>
+  <!-- 通常のロゴ画像 -->
+  <%= image_tag "logo.svg", class: "h-10 hover:scale-110 transition duration-500 dark:hidden" %>
+  <!-- ダークモード用のロゴ画像 -->
+  <%= image_tag "logo-dark.svg", class: "h-10 hover:scale-110 transition duration-500 hidden dark:block" %>
   <% end %>
 
   <div class="flex-none ml-auto">
 
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <div class="flex items-center">
-        <%= f.select :model_type, [['投稿内容', 'post'], ['ユーザー', 'user'], ['カテゴリ', 'category']], { include_blank: false }, class: "text-xs p-1 bg-transparent outline-none" %>
-        <%= f.text_field :query, class: "text-xs px-1 py-0.5 sm:p-1 w-28 sm:w-32 outline-none font-thin rounded-none", placeholder: "検索ワード" %>
-        <%= f.submit t('header.search'), class: "cursor-pointer text-sm pl-1 mr-6 hover:text-blue-400" %>
-      </div>
+    <div class="flex items-center">
+      <%= f.select :model_type, [['投稿内容', 'post'], ['ユーザー', 'user'], ['カテゴリ', 'category']], { include_blank: false }, class: "text-xs mx-2 mb- 1 sm:py-1 sm:pr-1 border-b border-gray-400 outline-none bg-transparent cursor-pointer" %>
+      <%= f.text_field :query, class: "text-xs px-1 py-0.5 sm:p-1 w-28 sm:w-32 outline-none font-thin rounded-none", placeholder: "検索ワード" %>
+      <button type="submit" class="cursor-pointer text-sm pl-1 mr-4 hover:text-blue-400">
+        <i class="ri-search-line"></i>
+      </button>
+    </div>
     <% end %>
 
 
     <%= link_to profile_path, class: "hidden sm:block hover:origin-bottom hover:rotate-12 font-thin text-4xl mr-4 md:mx-10" do %>
-      <i class="ri-id-card-fill text-black/50 hover:text-black"></i>
+    <i class="ri-id-card-fill text-black/50 hover:text-black"></i>
     <% end %>
   </div>
 </div>

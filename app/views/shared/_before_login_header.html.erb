@@ -1,18 +1,18 @@
-<div class="flex items-center justify-between sm:navbar bg-base-300 z-50">
+<div class="h-16 flex items-center justify-between sm:navbar bg-base-300 z-50">
 
-  <button class="ml-4 cursor-pointer">
+  <button class="ml-5 cursor-pointer">
     <%= link_to root_path, data: { turbo_frame: "_top" } do %>
 
-      <!-- 通常のロゴ画像 -->
-      <%= image_tag "logo.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 dark:hidden" %>
-      <!-- ダークモード用のロゴ画像 -->
-      <%= image_tag "logo-dark.svg", class: "h-8 sm:h-10 hover:scale-110 transition duration-500 hidden dark:block" %>
+    <!-- 通常のロゴ画像 -->
+    <%= image_tag "logo.svg", class: "h-10 hover:scale-110 transition duration-500 dark:hidden" %>
+    <!-- ダークモード用のロゴ画像 -->
+    <%= image_tag "logo-dark.svg", class: "h-10 hover:scale-110 transition duration-500 hidden dark:block" %>
 
     <% end %>
   </button>
 
-  <div class="flex ml-auto">
-    <button><%= link_to t("header.sign_up"), new_user_path, class: "btn btn-ghost cursor-pointer font-thin text-xs sm:text-base px-2 sm:mx-3 outline-none" %></button>
-    <button><%= link_to t("header.login"), login_path, class: "btn btn-ghost cursor-pointer font-thin text-xs sm:text-base px-2 sm:mx-3 outline-none" %></button>
+  <div class="flex ml-auto pr-2 sm:pr-0">
+    <button><%= link_to t("header.sign_up"), new_user_path, class: "btn btn-ghost cursor-pointer font-noto font-light text-sm sm:text-base px-2 sm:mx-3 outline-none" %></button>
+    <button><%= link_to t("header.login"), login_path, class: "btn btn-ghost cursor-pointer font-noto font-light text-sm sm:text-base px-2 sm:mx-3 outline-none" %></button>
   </div>
 </div>

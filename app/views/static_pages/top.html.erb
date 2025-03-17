@@ -1,17 +1,16 @@
-<meta name="turbo-cache-control" content="no-cache">
 <% set_meta_tags title: t(".title") %>
 
 <div id="endLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
   <div id="loadBox" class="bg-gray-100 w-full h-full">
     <div id="finishLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
-      <span id="loadText" class="w-full h-full text-xs font-noto font-thin flex items-center justify-center animate-ping">loading...</span>
+      <span id="loadText" class="w-full h-full font-noto font-thin flex items-center justify-center">loading...</span>
     </div>
   </div>
 </div>
 
 <div class="h-full mx-auto flex flex-col" data-turbo-temporary>
-  <div class="flex items-center justify-center h-full  mt-30 sm:mt-none">
-    <%= image_tag "top.svg", class: "z-10 w-5/6"%>
+  <div class="flex justify-center h-full">
+    <%= image_tag "top.svg", class: "z-10 sm:w-5/6 w-11/12"%>
   </div>
   <div class="contents">
     <ul id="toUpObjects" class="toUpObjects flex justify-evenly fixed w-11/12 left-1/2 -bottom-1 -translate-x-1/2 translate-y-1/2 opacity-40 z-5"></ul>
@@ -19,133 +18,134 @@
 
   <div class="w-11/12 mt-10 mb-20 mx-auto">
     <div class="contents2">
-      <div class="h1-box grid place-items-center tracking-widest my-10">
-        <h1 class="relative text-6xl font-noto font-thin py-1 px-2">
-          <p class="subheading bg-black/50 text-white px-2 pt-1 pb-2">機能紹介</p>
+      <div class="h1-box grid place-items-center tracking-widest sm:my-6 mb-6">
+        <h1 class="relative text-4xl sm:text-6xl font-noto font-thin py-1 px-2">
+          <p class="subheading text-gray-800 px-2 pt-1 pb-2">使用方法</p>
           <div class="overWrap absolute top-0 right-0 h-full w-full bg-gray-100">
           </div>
         </h1>
       </div>
       <div class="contentsInner w-5/6 mx-auto">
-        <ul class="contentsList grid grid-cols-2 md:grid-cols-4 gap-10 mt-10 place-items-center *:text-center *:text-black/50 *:w-36 *:text-xl *:py-2 *:cursor-pointer">
-          <li class="hover:animate-quake hover:text-black"><a href="#login" data-turbo="false" class="block w-full h-full">ログイン</a></li>
+        <ul class="contentsList grid grid-cols-2 md:grid-cols-4 gap-10 mt-10 place-items-center *:pb-3 *:font-noto *:font-base *:text-center *:text-gray-700 *:w-36 *:text-xl *:py-2 *:cursor-pointer">
+          <li class="hover:animate-quake hover:text-gray-800"><a href="#login" data-turbo="false" class="block w-full h-full">ログイン</a></li>
           <li class="hover:animate-quake hover:text-black"><a href="#post-create" data-turbo="false" class="block w-full h-full">投稿</a></li>
           <li class="hover:animate-quake hover:text-black"><a href="#posts-list" data-turbo="false" class="block w-full h-full">投稿一覧</a></li>
           <li class="hover:animate-quake hover:text-black"><a href="#post-detail" data-turbo="false" class="block w-full h-full">投稿詳細</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#comment" data-turbo="false" class="block w-full h-full">コメント</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#like" data-turbo="false" class="block w-full h-full">いいね</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#share" data-turbo="false" class="block w-full h-full">シェア</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#search" data-turbo="false" class="block w-full h-full">検索</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#profile" data-turbo="false" class="block w-full h-full">プロフィール</a></li>
-          <li class="hover:animate-quake hover:text-black"><a href="#follow" data-turbo="false" class="block w-full h-full">フォロー</a></li>
+          <li class="hover:animate-quake"><a href="#comment" data-turbo="false" class="block w-full h-full">コメント</a></li>
+          <li class="hover:animate-quake"><a href="#like" data-turbo="false" class="block w-full h-full">いいね</a></li>
+          <li class="hover:animate-quake"><a href="#share" data-turbo="false" class="block w-full h-full">シェア</a></li>
+          <li class="hover:animate-quake"><a href="#search" data-turbo="false" class="block w-full h-full">検索</a></li>
+          <li class="hover:animate-quake"><a href="#profile" data-turbo="false" class="block w-full h-full">プロフィール</a></li>
+          <li class="hover:animate-quake"><a href="#follow" data-turbo="false" class="block w-full h-full">フォロー</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <section id="login" class="p-10 border border-black/50 bg-stone-200 shadow-lg w-5/6 mx-auto target:scroll-mt-36 h-full">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">ログイン</h2>
-    <div class="explanation h-full sm:flex items-center pt-4">
-      <a href="<%= asset_path('login.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('login.gif', alt: '説明画像') %>
+  <section id="login" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">ログイン</h2>
+    <div class="explanation h-full sm:flex items-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('login.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('login.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">ログインには<br><br>登録した &nbsp;<span class="text-gray-800">メールアドレス</span>&nbsp; と &nbsp;<span class="text-gray-800">パスワード（４文字以上）</span><br><br>が必要になります。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">ログインには<br><br>登録した &nbsp;<span class="text-gray-900">メールアドレス</span> と <span class="text-gray-900">パスワード（４文字以上）</span><br><br>が必要になります。</p>
     </div>
   </section>
 
-  <section id="post-create" class="p-10 border border-black/50 bg-stone-200 my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36 h-full">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿</h2>
-    <div class="explanation h-full sm:flex items-center pt-4 sm:pt-6">
-      <a href="<%= asset_path('post.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('post.gif', alt: '説明画像') %>
+  <section id="post-create" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-4xl font-noto font-light">投稿</h2>
+    <div class="explanation h-full sm:flex items-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('post.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">あなたがbestと感じた<br><br><span class="text-gray-800">「もの」「場所」「体験」などを投稿</span>してください。<br><br><span class="text-gray-800">複数画像の選択</span>が可能です。<br><br>また、内容の入力で一部<span class="text-gray-800">マークダウン形式</span>が使用できます。<br><br>自分の投稿であれば、<span class="text-gray-800"> 編集 / 削除 </span>も可能です。</p>
+      <p class="basis-1/2 text-gray-700 font-noto font-light sm:ml-10 leading-tight">あなたがbestと感じた<br><br><span class="text-gray-900">「もの」「場所」「体験」などを投稿</span>してください。<br><br><span class="text-gray-900">複数画像の選択</span> が可能です。<br><br>また、内容の入力で一部<span class="text-gray-900"> マークダウン形式 </span>が使用できます。<br><br>自分の投稿であれば、<span class="text-gray-900"> 編集 / 削除 </span>も可能です。</p>
     </div>
   </section>
 
-  <section id="posts-list" class="p-10 border border-black/50 bg-stone-200 h-full shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿一覧</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('post.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('post.gif', alt: '説明画像') %>
+  <section id="posts-list" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-4xl font-noto font-light">投稿一覧</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('post.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">投稿が<span class="text-gray-800">一覧で表示</span>されます。<br><br>自分の投稿は<span class="text-gray-800"> 編集 / 削除 </span>も可能です。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">投稿が<span class="text-gray-900">一覧で表示</span>されます。<br><br>自分の投稿は<span class="text-gray-900"> 編集 / 削除 </span>も可能です。</p>
     </div>
   </section>
 
-  <section id="post-detail" class="p-10 border border-black/50 bg-stone-200 h-full my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">投稿詳細</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('post_detail.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('post_detail.gif', alt: '説明画像') %>
+  <section id="post-detail" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">投稿詳細</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('post_detail.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('post_detail.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">投稿の<span class="text-gray-800">タイトルをクリック</span>すると、その<span class="text-gray-800">詳細を表示</span>します。<br><br>画像は<span class="text-gray-800"> スライド / 拡大 可能</span>です。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">投稿の<span class="text-gray-900">タイトルをクリック</span>すると、その<span class="text-gray-900">詳細を表示</span>します。<br><br>画像は<span class="text-gray-900"> スライド / 拡大 可能</span>です。</p>
     </div>
   </section>
 
-  <section id="comment" class="p-10 border border-black/50 bg-stone-200 h-full shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">コメント</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('comment.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('comment.gif', alt: '説明画像') %>
+  <section id="comment" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">コメント</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('comment.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('comment.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">投稿の詳細画面でその<span class="text-gray-800">投稿に対してコメント</span>をすることができます。<br><br>自分のコメントは<span class="text-gray-800"> 削除 </span>できます。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">投稿の詳細画面でその<span class="text-gray-900">投稿に対してコメント</span>をすることができます。<br><br>自分のコメントは<span class="text-gray-900"> 削除 </span>できます。</p>
     </div>
   </section>
 
-  <section id="like" class="p-10 border border-black/50 bg-stone-200 h-full my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">いいね</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('like.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('like.gif', alt: '説明画像') %>
+  <section id="like" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">いいね</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('like.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('like.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">他のユーザーが<span class="text-gray-800">投稿した内容にいいねをつける</span>ことができます。<br><br>投稿の一覧か詳細の画面で<span class="text-gray-800">ハートのアイコンをクリック</span>してください。</p>
-    </div>
-  </section>
-
-
-  <section id="share" class="p-10 border border-black/50 bg-stone-200 h-full shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">シェア</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('share.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('share.gif', alt: '説明画像') %>
-      </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">投稿の詳細画面で、その投稿を<span class="text-gray-800">X'sにシェアする</span>ことができます。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">他のユーザーが<span class="text-gray-900">投稿した内容にいいねをつける</span>ことができます。<br><br>投稿の一覧か詳細の画面で<span class="text-gray-900">ハートのアイコンをクリック</span>してください。</p>
     </div>
   </section>
 
 
-  <section id="search" class="p-10 border border-black/50 bg-stone-200 h-full my-10 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">検索</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('search.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('search.gif', alt: '説明画像') %>
+  <section id="share" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">シェア</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('share.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('share.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">ヘッダーに検索ボックスがあります。<br><br>プルダウンで<span class="text-gray-800">検索対象を選択</span>して、<span class="text-gray-800">キーワード検索</span>してください。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">投稿の詳細画面で、その投稿を<span class="text-gray-900">X'sにシェアする</span>ことができます。</p>
     </div>
   </section>
 
 
-  <section id="profile" class="p-10 border border-black/50 bg-stone-200 h-full shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">プロフィール</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-2">
-      <a href="<%= asset_path('profile.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('profile.gif', alt: '説明画像') %>
+  <section id="search" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">検索</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('search.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('search.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10"><span class="text-gray-800">あなたのプロフィールを編集</span>したり、<span class="text-gray-800">他のユーザーのプロフィールを確認</span>できます。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">ヘッダーに検索ボックスがあります。<br><br>プルダウンで<span class="text-gray-900">検索対象を選択</span>して、<span class="text-gray-900">キーワード検索</span>してください。</p>
     </div>
   </section>
 
-  <section id="follow" class="p-10 border border-black/50 bg-stone-200 h-full mt-10 mb-32 shadow-lg w-5/6 mx-auto target:scroll-mt-36">
-    <h2 class="border-b border-black/50 text-3xl font-noto font-normal">フォロー</h2>
-    <div class="explanation h-full sm:flex items-center justify-center pt-4">
-      <a href="<%= asset_path('follow.gif') %>" class="my-auto basis-1/3 p-2" data-lightbox="gallery" data-title="Explanation">
-        <%= image_tag('follow.gif', alt: '説明画像') %>
+
+  <section id="profile" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">プロフィール</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('profile.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('profile.gif', alt: '説明画像', class: 'w-11/12') %>
       </a>
-      <p class="basis-2/3 text-medium text-black/50 font-noto font-normal sm:ml-10">プロフィール画面から<span class="text-gray-800">他のユーザーをフォローする</span>ことができます。<br><br><span class="text-gray-800">フォロー中 や フォロワー の人数表示をクリック</span>することで一覧が表示されます。</p>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight"><span class="text-gray-900">あなたのプロフィールを編集</span>したり、<span class="text-gray-900">他のユーザーのプロフィールを確認</span>できます。</p>
     </div>
   </section>
 
+  <section id="follow" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+    <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">フォロー</h2>
+    <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
+      <a href="<%= asset_path('follow.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
+        <%= image_tag('follow.gif', alt: '説明画像', class: 'w-11/12') %>
+      </a>
+      <p class="basis-1/2 text-medium text-gray-700 font-noto font-light sm:ml-10 leading-tight">プロフィール画面から<span class="text-gray-900">他のユーザーをフォローする</span>ことができます。<br><br><span class="text-gray-900">フォロー中 や フォロワー の人数表示をクリック</span>することで一覧が表示されます。</p>
+    </div>
+  </section>
+
+  <p class="mt-6 mb-24 text-center text-2xl text-gray-800 font-noto font-thin">- end -</p>
 
 
   <div class="w-full z-50 sm:hidden">

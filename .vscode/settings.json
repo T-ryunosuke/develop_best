@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["gsap", "noto", "lightbox", "transeparent"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
