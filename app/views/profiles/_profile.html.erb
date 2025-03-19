@@ -12,9 +12,9 @@
             <% if current_user.id != @user.id %>
             <div class="text-sm">
               <% if current_user.followee?(@user) %>
-                <%= link_to "フォローを外す", user_relationships_path(@user), data: { "turbo-method": :delete }, class: "bg-transparent border-b border-red-400 px-1 text-red-400 hover:text-gray-400 hover:border-transparent transition duration-500" %>
+              <%= link_to "フォローを外す", user_relationships_path(@user), data: { "turbo-method": :delete }, class: "bg-transparent border-b border-red-400 px-1 text-red-400 hover:text-gray-400 hover:border-transparent transition duration-500" %>
               <% else %>
-                <%= link_to "フォローする", user_relationships_path(@user), data: { "turbo-method": :post }, class: "bg-transparent border-b border-blue-500 text-blue-500 px-1 hover:text-gray-400 hover:border-transparent transition duration-500" %>
+              <%= link_to "フォローする", user_relationships_path(@user), data: { "turbo-method": :post }, class: "bg-transparent border-b border-blue-500 text-blue-500 px-1 hover:text-gray-400 hover:border-transparent transition duration-500" %>
               <% end %>
             </div>
             <% end %>
@@ -50,17 +50,17 @@
               </div>
 
               <label><%= t("profiles.show.profile") %></label>
-              <div class="w-5/6 lg:w-4/6 mt-1 ml-4 mb-4 textarea bg-transparent w-5/6 border border-black/50 p-2 leading-tight">
+              <div class="w-5/6 lg:w-4/6 mt-1 ml-4 mb-4 p-2 h-24 textarea bg-transparent border border-black/50 text-xs sm:text-sm leading-tight">
                 <%= simple_format(@user.profile) %>
               </div>
             </div>
 
             <% if current_user.id == @user.id %>
-              <div class="text-end mb-10 w-5/6 lg:w-4/6">
-                <%= link_to edit_profile_path do %>
-                  <i class="ri-pencil-line text-xl font-thin"></i>
-                <% end %>
-              </div>
+            <div class="text-end mb-10 w-5/6 lg:w-4/6">
+              <%= link_to edit_profile_path do %>
+              <i class="ri-pencil-line text-xl font-thin"></i>
+              <% end %>
+            </div>
             <% end %>
 
           </div>

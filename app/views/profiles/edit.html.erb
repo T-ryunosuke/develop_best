@@ -45,13 +45,13 @@
 
               <%= f.label :profile, t(".profile") %>
               <span class="mt-1 mb-3">
-                <%= f.text_area :profile, class: 'bg-transparent w-5/6 border border-black/50 rounded-md p-2 ml-4 mb-4' %>
+                <%= f.text_area :profile, class: 'bg-transparent w-5/6 h-24 border border-black/50 rounded-md text-sm p-2 ml-4 mb-4' %>
               </span>
               <%= render 'shared/error_message_for_field', object: f.object, attribute: :profile %>
             </div>
 
             <div class="text-end w-5/6">
-              <%= f.submit t(".submit"), class: "w-1/5 md:w-1/6 mb-10 rounded-full border border-slate-600 bg-slate-700 text-white font-thin cursor-pointer hover:text-black hover:bg-white hover:shadow-md transition duration-200" %>
+              <%= f.submit t(".submit"), class: "w-2/5 sm:w-1/5 md:w-1/6 mb-10 pb-0.5 rounded-md border border-slate-600 bg-slate-700 text-white font-thin cursor-pointer hover:text-black hover:bg-white hover:shadow-md transition duration-200" %>
             </div>
           </div>
         </div>

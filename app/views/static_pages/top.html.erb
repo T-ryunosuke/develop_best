@@ -3,17 +3,19 @@
 <div id="endLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
   <div id="loadBox" class="bg-gray-100 w-full h-full">
     <div id="finishLoading" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-transparent bg-no-repeat z-30">
-      <span id="loadText" class="w-full h-full font-noto font-thin flex items-center justify-center">loading...</span>
+      <div id="loadText" class="w-full h-full font-noto font-thin flex items-center justify-center">
+        <span class="animate-spin h-3 w-3 mr-2 border border-gray-800 rounded-full border-t-transparent"></span>loading
+      </div>
     </div>
   </div>
 </div>
 
 <div class="h-full mx-auto flex flex-col" data-turbo-temporary>
-  <div class="flex justify-center h-full">
-    <%= image_tag "top.svg", class: "z-10 sm:w-5/6 w-11/12"%>
+  <div class="flex justify-center h-screen sm:h-full -mt-24 sm:-mt-1">
+    <%= image_tag "top.svg", class: "z-10 w-11/12 sm:w-5/6"%>
   </div>
   <div class="contents">
-    <ul id="toUpObjects" class="toUpObjects flex justify-evenly fixed w-11/12 left-1/2 -bottom-1 -translate-x-1/2 translate-y-1/2 opacity-40 z-5"></ul>
+    <ul id="toUpObjects" class="toUpObjects flex justify-evenly fixed w-full sm:w-11/12 left-1/2 -bottom-1 -translate-x-1/2 translate-y-1/2 opacity-40 z-5"></ul>
   </div>
 
   <div class="w-11/12 mt-10 mb-20 mx-auto">
@@ -42,7 +44,7 @@
     </div>
   </div>
 
-  <section id="login" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
+  <section id="login" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">ログイン</h2>
     <div class="explanation h-full sm:flex items-center sm:pt-4 mb-3">
       <a href="<%= asset_path('login.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -52,7 +54,7 @@
     </div>
   </section>
 
-  <section id="post-create" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
+  <section id="post-create" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36 h-full">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-4xl font-noto font-light">投稿</h2>
     <div class="explanation h-full sm:flex items-center sm:pt-4 mb-3">
       <a href="<%= asset_path('post.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -62,7 +64,7 @@
     </div>
   </section>
 
-  <section id="posts-list" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="posts-list" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-4xl font-noto font-light">投稿一覧</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('post.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -72,7 +74,7 @@
     </div>
   </section>
 
-  <section id="post-detail" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="post-detail" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">投稿詳細</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('post_detail.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -82,7 +84,7 @@
     </div>
   </section>
 
-  <section id="comment" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="comment" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">コメント</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('comment.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -92,7 +94,7 @@
     </div>
   </section>
 
-  <section id="like" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="like" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">いいね</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('like.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -103,7 +105,7 @@
   </section>
 
 
-  <section id="share" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="share" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">シェア</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('share.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -114,7 +116,7 @@
   </section>
 
 
-  <section id="search" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="search" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">検索</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('search.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -125,7 +127,7 @@
   </section>
 
 
-  <section id="profile" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="profile" class="px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">プロフィール</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('profile.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
@@ -135,7 +137,7 @@
     </div>
   </section>
 
-  <section id="follow" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-stone-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
+  <section id="follow" class="my-10 px-6 sm:px-10 pt-5 pb-6 sm:py-6 border border-gray-400 rounded bg-base-200 h-full shadow-lg w-11/12 sm:w-5/6 mx-auto target:scroll-mt-36">
     <h2 class="sm:mt-2 pl-2 p-1 pb-2 border-b border-black/50 text-3xl font-noto font-light">フォロー</h2>
     <div class="explanation h-full sm:flex items-center justify-center sm:pt-4 mb-3">
       <a href="<%= asset_path('follow.gif') %>" class="flex justify-center my-auto basis-1/2 sm:pl-2 py-6" data-lightbox="gallery" data-title="Explanation">
