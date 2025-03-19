@@ -11,10 +11,15 @@ document.addEventListener("turbo:load", function () {
 
   if (!toUpObjects) return;
 
+  // 画面サイズによってスケール範囲を変更
+  const isMobile = window.innerWidth <= 640; // 640px以下をスマホ判定
+  const scaleMin = isMobile ? 2.2 : 0.7; // スマホなら最小1.0、PCなら0.7
+  const scaleMax = isMobile ? 3.0 : 1.2; // スマホなら最大1.5、PCなら1.2
+
   for (let i = 0; i < objectNumber; i++) {
     const li = document.createElement('li')
     li.style.width = `${30 / objectNumber}%`
-    li.style.transform = `scale(${gsap.utils.random(.7, 1.2)})`
+    li.style.transform = `scale(${gsap.utils.random(scaleMin, scaleMax)})`
     toUpObjects.appendChild(li)
   };
 
